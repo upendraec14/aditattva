@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditattva Technocrats | Engineering Intelligence. Delivering Impact.</title>
+    <meta name="description" content="Aditattva Technocrats Private Limited - A multidisciplinary engineering, EPC, and digital consulting enterprise delivering integrated solutions.">
+    
+    <!-- Fonts: Manrope for a modern, engineering-corporate look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0b1c2e; /* Deep Navy - Corporate/Trust */
+            --secondary: #0056b3; /* Bright Blue - Innovation/Action */
+            --accent: #f39c12; /* Gold/Orange - Construction/Warning */
+            --light: #f4f6f8;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --border: #e0e0e0;
+            
+            --max-width: 1280px;
+            --header-height: 80px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -1px; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.5px; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; font-weight: 700; }
+        p { margin-bottom: 1.25rem; color: var(--text-gray); font-size: 1.05rem; }
+        
+        .section-title {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+        
+        .section-title span {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(11, 28, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .logo span { color: var(--secondary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--white);
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                border-bottom: 4px solid var(--secondary);
+            }
+            .nav-links.open { transform: translateY(0); }
+            .mobile-toggle { display: block; }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background-image: linear-gradient(rgba(11, 28, 46, 0.7), rgba(11, 28, 46, 0.5)), url('https://picsum.photos/seed/engineering/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero-bar-content {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: var(--max-width);
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: left;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary);
+        }
+        .stat-item strong { display: block; font-size: 1.5rem; color: var(--primary); }
+        .stat-item span { font-size: 0.85rem; color: var(--text-gray); text-transform: uppercase; letter-spacing: 1px; }
+
+        @media(max-width: 768px) {
+            .hero-bar { display: none; } /* Hide bottom bar on mobile to save space */
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-text .subtitle {
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .meaning {
+            background: var(--light);
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            margin-top: 2rem;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .m-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .m-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        .m-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        .m-card h4 {
+            margin-bottom: 1rem;
+        }
+        .m-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+        .m-card ul li::before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .service-card {
+            background: var(--white);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        .service-card:hover .service-img { filter: grayscale(0%); }
+
+        .service-content {
+            padding: 2rem;
+            flex-grow: 1;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .service-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content ul {
+            margin-top: 1rem;
+        }
+        .service-content ul li {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+        }
+        .service-content ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary);
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* --- INDUSTRIES SECTION --- */
+        .industries {
+            padding: 100px 0;
+            background-color: var(--primary);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .industries .section-title h2 { color: var(--white); }
+        .industries .section-title p { color: rgba(255,255,255,0.7); }
+
+        .industry-pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .industry-pill {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .industry-pill:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* --- ADVANTAGE & INNOVATION --- */
+        .innovation {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .prop-platform {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .prop-platform:hover { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .prop-platform i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
+        .prop-platform h4 { color: var(--primary); }
+        .prop-platform span { font-size: 0.8rem; color: var(--text-gray); text-transform: uppercase; letter-spacing: 1px; }
+
+        .advantage-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .adv-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .adv-item i {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            padding: 100px 0;
+            background-color: #0a121b;
+            color: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 { color: var(--white); }
+        .contact-info p { color: #a0a0a0; }
+
+        .contact-detail {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .c-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .c-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: inherit;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        @media(max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050a10;
+            color: #777;
+            padding: 4rem 0 2rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 { color: var(--white); margin-bottom: 1rem; }
+        .footer-col h4 { color: var(--white); font-size: 1rem; margin-bottom: 1.5rem; }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col ul li a:hover { color: var(--secondary); }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media(max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width: 576px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <!-- Logo updated: Icon removed, only Name remains -->
+            <a href="#" class="logo">
+                ADITATTVA
+            </a>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#industries">Industries</a>
+                <a href="#innovation">Innovation</a>
+                <a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color: white;">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Engineering Intelligence. Delivering Impact.</h1>
+                <p>A multidisciplinary engineering, EPC, and digital consulting enterprise delivering integrated, end-to-end solutions across infrastructure, industrial, and enterprise technology ecosystems.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#services" class="btn btn-primary">Our Capabilities</a>
+                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Bottom Stats Bar -->
+        <div class="hero-bar">
+            <div class="hero-bar-content">
+                <div class="stat-item">
+                    <strong>Advisory-led</strong>
+                    <span>Strategy</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Execution-driven</strong>
+                    <span>EPC Delivery</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Digitally Enabled</strong>
+                    <span>Smart Solutions</span>
+                </div>
+                <div class="stat-item">
+                    <strong>ESG-aligned</strong>
+                    <span>Sustainability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+        <div class="container">
+            <div class="grid-2">
+                <div class="about-text">
+                    <span class="subtitle">About Aditattva</span>
+                    <h2>Converging Physical Assets & Digital Intelligence</h2>
+                    <p>Headquartered in Ranchi, India, Aditattva Technocrats Private Limited is an emerging global powerhouse. We combine world-class technical capabilities with advanced digital technologies to develop resilient, sustainable, and intelligent infrastructure solutions.</p>
+                    <p>Operating at the convergence of engineering and IT, we enable clients to conceive, build, modernize, optimize, and operate future-ready infrastructure.</p>
+                    
+                    <div class="meaning">
+                        <h4 style="margin-bottom:0.5rem; color:var(--primary);">The Name "Aditattva"</h4>
+                        <p style="font-size:0.9rem; margin:0;">Merging <strong>Adi</strong> (first, origin) and <strong>Tattva</strong> (principle, truth), symbolizing our foundation in core engineering principles and commitment to transformative innovation.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/architect/600/700" alt="Engineering Team" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+                </div>
+            </div>
+
+            <!-- Vision / Mission / Values -->
+            <div class="mission-grid">
+                <div class="m-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <h4>Vision</h4>
+                    <p>To be a globally trusted engineering and digital consulting partner enabling sustainable growth, intelligent infrastructure, and digitally empowered enterprises.</p>
+                </div>
+                <div class="m-card">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h4>Mission</h4>
+                    <ul>
+                        <li>Deliver world-class engineering, EPC, and IT solutions.</li>
+                        <li>Enable enterprise-wide digital transformation.</li>
+                        <li>Engineer sustainable & resilient systems.</li>
+                        <li>Build partnerships on integrity & innovation.</li>
+                    </ul>
+                </div>
+                <div class="m-card">
+                    <i class="fa-solid fa-gem"></i>
+                    <h4>Core Values</h4>
+                    <ul>
+                        <li><strong>Integrity:</strong> Ethical, transparent delivery.</li>
+                        <li><strong>Innovation:</strong> Technology-driven problem solving.</li>
+                        <li><strong>Excellence:</strong> Global quality benchmarks.</li>
+                        <li><strong>Sustainability:</strong> Environmental responsibility.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services reveal">
+        <div class="container">
+            <div class="section-title">
+                <span>Our Capabilities</span>
+                <h2>Comprehensive Service Portfolio</h2>
+                <p>From ideation to operations, we support the complete project lifecycle.</p>
+            </div>
+
+            <div class="grid-4">
+                <!-- Service 1 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/blueprint/400/300" alt="Engineering" class="service-img">
+                    <div class="service-content">
+                        <h3>Engineering & Design</h3>
+                        <p>Comprehensive engineering from conceptualization to as-built documentation using BIM and simulation.</p>
+                        <ul>
+                            <li>FEED & Detailed Engineering</li>
+                            <li>Civil, Structural, Mechanical</li>
+                            <li>Value Engineering</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 2 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/consulting/400/300" alt="Consulting" class="service-img">
+                    <div class="service-content">
+                        <h3>Consulting & Advisory</h3>
+                        <p>Informed decision-making support for technically complex and capital-intensive projects.</p>
+                        <ul>
+                            <li>Feasibility Studies</li>
+                            <li>Technical Due Diligence</li>
+                            <li>Master Planning</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 3 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/manager/400/300" alt="PMC" class="service-img">
+                    <div class="service-content">
+                        <h3>PMC / PMO</h3>
+                        <p>End-to-end project management safeguarding cost, schedule, and quality outcomes.</p>
+                        <ul>
+                            <li>Project Controls</li>
+                            <li>Contract Administration</li>
+                            <li>Construction Supervision</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 4 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/construction/400/300" alt="EPC" class="service-img">
+                    <div class="service-content">
+                        <h3>EPC & EPCM</h3>
+                        <p>Turnkey delivery models providing single-point accountability for complex projects.</p>
+                        <ul>
+                            <li>Procurement & Construction</li>
+                            <li>Global Sourcing</li>
+                            <li>Commissioning Support</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 5 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/hvac/400/300" alt="MEP" class="service-img">
+                    <div class="service-content">
+                        <h3>MEP & Specialized Systems</h3>
+                        <p>Efficient, safe, and compliant MEP systems for commercial and industrial environments.</p>
+                        <ul>
+                            <li>HVAC & Public Health</li>
+                            <li>Fire Protection</li>
+                            <li>BMS & Building Automation</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 6 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/digital/400/300" alt="IT Services" class="service-img">
+                    <div class="service-content">
+                        <h3>Digital Transformation</h3>
+                        <p>Modernizing enterprise IT landscapes and bridging OT with IT for smarter operations.</p>
+                        <ul>
+                            <li>Cloud & Infrastructure</li>
+                            <li>Data, AI & Analytics</li>
+                            <li>Cybersecurity</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 7 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/factory/400/300" alt="Smart Systems" class="service-img">
+                    <div class="service-content">
+                        <h3>Smart Systems & Industry 4.0</h3>
+                        <p>Intelligent, connected systems integrating automation and AI.</p>
+                        <ul>
+                            <li>Industrial IoT</li>
+                            <li>Digital Twins</li>
+                            <li>Smart Cities</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Service 8 -->
+                <article class="service-card">
+                    <img src="https://picsum.photos/seed/nature/400/300" alt="ESG" class="service-img">
+                    <div class="service-content">
+                        <h3>ESG & Sustainability</h3>
+                        <p>Helping organizations achieve environmental goals and regulatory compliance.</p>
+                        <ul>
+                            <li>Climate Risk Advisory</li>
+                            <li>Decarbonization</li>
+                            <li>Green Buildings</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries reveal">
+        <div class="container">
+            <div class="section-title">
+                <span>Domain Expertise</span>
+                <h2>Industries We Serve</h2>
+                <p>Delivering specialized solutions across diverse sectors.</p>
+            </div>
+
+            <div class="industry-pill-container">
+                <div class="industry-pill"><i class="fa-solid fa-oil-well"></i> Oil & Gas | Refineries</div>
+                <div class="industry-pill"><i class="fa-solid fa-bolt"></i> Power & Renewable Energy</div>
+                <div class="industry-pill"><i class="fa-solid fa-city"></i> Smart Cities & Urban Dev</div>
+                <div class="industry-pill"><i class="fa-solid fa-industry"></i> Manufacturing</div>
+                <div class="industry-pill"><i class="fa-solid fa-gem"></i> Mining, Metals & Cement</div>
+                <div class="industry-pill"><i class="fa-solid fa-water"></i> Water & Environment</div>
+                <div class="industry-pill"><i class="fa-solid fa-wheat-awn"></i> Agriculture & Rural Dev</div>
+                <div class="industry-pill"><i class="fa-solid fa-hospital"></i> Health & Education</div>
+                <div class="industry-pill"><i class="fa-solid fa-building"></i> Real Estate</div>
+                <div class="industry-pill"><i class="fa-solid fa-server"></i> Data Centres</div>
+                <div class="industry-pill"><i class="fa-solid fa-landmark"></i> Government</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation & Advantage -->
+    <section id="innovation" class="innovation reveal">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="subtitle">Why Aditattva?</span>
+                    <h2>The Aditattva Advantage</h2>
+                    <p style="margin-bottom: 2rem;">Our differentiated model blends deep-rooted engineering excellence with world-class IT, digital transformation, and smart systems capabilities.</p>
+                    
+                    <div class="advantage-list">
+                        <div class="adv-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Single-Point Accountability</h4>
+                                <p style="font-size:0.9rem;">Engineering, IT & EPC under one roof.</p>
+                            </div>
+                        </div>
+                        <div class="adv-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Digital-First Approach</h4>
+                                <p style="font-size:0.9rem;">Automation-oriented and data-driven execution.</p>
+                            </div>
+                        </div>
+                        <div class="adv-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Global Delivery Model</h4>
+                                <p style="font-size:0.9rem;">Cost efficiency with managed services capability.</p>
+                            </div>
+                        </div>
+                        <div class="adv-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Outcome Focused</h4>
+                                <p style="font-size:0.9rem;">Aligned with ISO 9001, 14001, 45001 standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="subtitle">Innovation Labs</span>
+                    <h2>Proprietary Platforms</h2>
+                    <p style="margin-bottom: 2rem;">Incubating next-generation solutions at the intersection of engineering, AI, data, and sustainability.</p>
+
+                    <div class="grid-3">
+                        <div class="prop-platform">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <h4>AditaSim™</h4>
+                            <span>Simulation & Modeling</span>
+                        </div>
+                        <div class="prop-platform">
+                            <i class="fa-solid fa-clone"></i>
+                            <h4>AditaTwin™</h4>
+                            <span>Digital Twin Intelligence</span>
+                        </div>
+                        <div class="prop-platform">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                            <h4>AditaBuild™</h4>
+                            <span>Digital Construction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="subtitle" style="color: var(--accent);">Get In Touch</span>
+                    <h2>Let's Build the Future Together</h2>
+                    <p>Aditattva Technocrats Private Limited is ready to partner with you for your next engineering or digital transformation project.</p>
+                    
+                    <div class="contact-detail">
+                        <div class="c-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Headquarters</strong><br>
+                                Ratu Road, Ranchi, Jharkhand – 834001, India
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +91-92883-63351
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@aditattva.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject / Industry">
+                        <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>ADITATTVA</h3>
+                    <p>Advisory-led. Execution-driven. ESG-aligned. Digitally enabled.</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#innovation">Innovation Labs</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Engineering & EPC</a></li>
+                        <li><a href="#">Digital Transformation</a></li>
+                        <li><a href="#">Advisory</a></li>
+                        <li><a href="#">ESG Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Aditattva Technocrats Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
