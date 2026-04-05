@@ -11,7 +11,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 <script>
-tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}
+tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{brand:{50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'}}}}}
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -24,93 +24,137 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f4;overflow-x:
 
 .glass{background:rgba(23,23,23,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.05)}
 .glass-strong{background:rgba(10,10,10,0.88);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.08)}
+
 .text-gradient{background:linear-gradient(135deg,#d6d3d1 0%,#a8a29e 50%,#78716c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .text-gradient-blue{background:linear-gradient(135deg,#93c5fd 0%,#3b82f6 50%,#6366f1 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
 .bg-grid{background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
 
 .btn-primary{position:relative;overflow:hidden;transition:all .4s cubic-bezier(.17,.55,.55,1)}
 .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .7s}
 .btn-primary:hover::before{left:100%}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px -5px rgba(59,130,246,0.4)}
+
 .btn-secondary{transition:all .4s cubic-bezier(.17,.55,.55,1)}
 .btn-secondary:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.3);box-shadow:0 0 20px rgba(59,130,246,0.15)}
+
 .card-hover{transition:all .5s cubic-bezier(.17,.55,.55,1)}
 .card-hover:hover{transform:translateY(-8px);box-shadow:0 30px 60px -12px rgba(0,0,0,0.5);border-color:rgba(59,130,246,0.2)}
+
 .icon-float{animation:iconFloat 6s ease-in-out infinite}
 @keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 .animate-in{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.17,.55,.55,1)}
 .animate-in.visible{opacity:1;transform:translateY(0)}
-.animate-in.delay-1{transition-delay:.1s}.animate-in.delay-2{transition-delay:.2s}.animate-in.delay-3{transition-delay:.3s}
-.animate-in.delay-4{transition-delay:.4s}.animate-in.delay-5{transition-delay:.5s}.animate-in.delay-6{transition-delay:.6s}
-.animate-in.delay-7{transition-delay:.7s}.animate-in.delay-8{transition-delay:.8s}
+.animate-in.delay-1{transition-delay:.1s}
+.animate-in.delay-2{transition-delay:.2s}
+.animate-in.delay-3{transition-delay:.3s}
+.animate-in.delay-4{transition-delay:.4s}
+.animate-in.delay-5{transition-delay:.5s}
+.animate-in.delay-6{transition-delay:.6s}
+.animate-in.delay-7{transition-delay:.7s}
+.animate-in.delay-8{transition-delay:.8s}
+
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(59,130,246,0.2)}50%{box-shadow:0 0 40px rgba(59,130,246,0.4)}}
 .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
 
+@keyframes rotate-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.rotate-slow{animation:rotate-slow 30s linear infinite}
+
 .nav-link{position:relative}
 .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#3b82f6;transition:width .3s}
 .nav-link:hover::after{width:100%}
+
 .capability-pill{transition:all .3s}
 .capability-pill:hover{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#93c5fd}
+
 .industry-card{transition:all .5s cubic-bezier(.17,.55,.55,1)}
 .industry-card:hover{background:rgba(59,130,246,0.05);border-color:rgba(59,130,246,0.3)}
 .industry-card:hover .industry-icon{transform:scale(1.15);color:#60a5fa}
 .industry-icon{transition:all .4s}
+
 .solution-card{position:relative;overflow:hidden}
 .solution-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,#3b82f6,transparent);opacity:0;transition:opacity .4s}
 .solution-card:hover::before{opacity:1}
+
 .insight-card img{transition:transform .6s cubic-bezier(.17,.55,.55,1)}
 .insight-card:hover img{transform:scale(1.08)}
+
 .mobile-menu{transform:translateX(100%);transition:transform .4s cubic-bezier(.17,.55,.55,1)}
 .mobile-menu.open{transform:translateX(0)}
+
 .toast{transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.17,.55,.55,1)}
 .toast.show{transform:translateY(0);opacity:1}
+
 .modal-overlay{opacity:0;pointer-events:none;transition:opacity .3s}
 .modal-overlay.active{opacity:1;pointer-events:all}
 .modal-content{transform:scale(.95) translateY(20px);transition:transform .4s cubic-bezier(.17,.55,.55,1)}
 .modal-overlay.active .modal-content{transform:scale(1) translateY(0)}
+
 .dropdown-menu{opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s}
 .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+
 .marquee{animation:marquee 30s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 .stat-number{font-variant-numeric:tabular-nums}
 
+@keyframes beam-drop{0%{transform:translateY(-100%);opacity:0}10%{opacity:.8}85%{transform:translateY(100vh);opacity:.8}86%,100%{opacity:0}}
+
+/* Hero Slider */
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s cubic-bezier(.4,0,.2,1),transform 1.2s cubic-bezier(.4,0,.2,1);transform:scale(1.05)}
 .hero-slide.active{opacity:1;transform:scale(1)}
 .hero-slide .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s ease-out}
 .hero-slide.active .slide-bg{transform:scale(1.08)}
 .hero-slide .slide-content{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.17,.55,.55,1) .4s}
 .hero-slide.active .slide-content{opacity:1;transform:translateY(0)}
+
 .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all .4s;cursor:pointer}
 .hero-dot.active{background:#3b82f6;width:28px;border-radius:4px;box-shadow:0 0 12px rgba(59,130,246,0.5)}
+
 .hero-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:all .3s;cursor:pointer;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px)}
 .hero-arrow:hover{border-color:rgba(255,255,255,0.4);color:#fff;background:rgba(59,130,246,0.2)}
-.slide-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.7)}
-.bu-card-graphic{position:absolute;top:0;right:0;width:45%;height:100%;overflow:hidden;border-radius:0 1rem 1rem 0;opacity:0;transition:opacity .5s}
-.card-hover:hover .bu-card-graphic{opacity:1}
-.bu-card-graphic img{width:100%;height:100%;object-fit:cover;opacity:0.2}
-.bu-card-graphic::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(23,23,23,1) 0%,rgba(23,23,23,0) 60%)}
 
-/* Section-specific ambient backgrounds */
-.sec-about{background:radial-gradient(ellipse 80% 60% at 20% 50%,rgba(59,130,246,0.04),transparent),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(99,102,241,0.03),transparent)}
-.sec-services{background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(59,130,246,0.05),transparent),radial-gradient(ellipse 50% 50% at 80% 80%,rgba(99,102,241,0.03),transparent)}
-.sec-industries{background:radial-gradient(ellipse 60% 50% at 80% 40%,rgba(99,102,241,0.04),transparent),radial-gradient(ellipse 50% 40% at 10% 70%,rgba(59,130,246,0.03),transparent)}
-.sec-solutions{background:radial-gradient(ellipse 70% 60% at 30% 70%,rgba(59,130,246,0.04),transparent)}
-.sec-delivery{background:radial-gradient(ellipse 60% 50% at 20% 60%,rgba(99,102,241,0.04),transparent),radial-gradient(ellipse 50% 50% at 90% 30%,rgba(59,130,246,0.03),transparent)}
-.sec-insights{background:radial-gradient(ellipse 70% 50% at 60% 20%,rgba(59,130,246,0.04),transparent)}
-.sec-partners{background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(99,102,241,0.03),transparent)}
-.sec-careers{background:radial-gradient(ellipse 60% 50% at 30% 40%,rgba(59,130,246,0.04),transparent),radial-gradient(ellipse 40% 40% at 80% 70%,rgba(99,102,241,0.03),transparent)}
-.sec-contact{background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(59,130,246,0.04),transparent)}
+.slide-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.7)}
+
+/* Section BG images */
+.section-bg{position:relative;overflow:hidden}
+.section-bg::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.04;pointer-events:none}
+.section-bg-dark::before{opacity:0.06}
+
+/* Decorative shapes */
+.deco-circle{position:absolute;border-radius:50%;border:1px solid rgba(59,130,246,0.08);pointer-events:none}
+.deco-line{position:absolute;background:linear-gradient(180deg,rgba(59,130,246,0.15),transparent);width:1px;pointer-events:none}
 </style>
 </head>
 <body class="bg-grid">
 
-<div id="toast" class="toast fixed bottom-6 right-6 z-[200] glass-strong rounded-xl px-6 py-4 flex items-center gap-3 max-w-sm"><span class="iconify text-green-400 text-xl" data-icon="mdi:check-circle"></span><span id="toastMsg" class="text-sm text-stone-200"></span></div>
-<div id="modal" class="modal-overlay fixed inset-0 z-[150] flex items-center justify-center p-4" style="background:rgba(0,0,0,0.7)"><div class="modal-content glass-strong rounded-2xl p-8 max-w-lg w-full relative max-h-[90vh] overflow-y-auto" id="modalInner"><button onclick="closeModal()" class="absolute top-4 right-4 text-stone-500 hover:text-white transition-colors z-10"><span class="iconify text-2xl" data-icon="mdi:close"></span></button><div id="modalBody"></div></div></div>
+<!-- Toast -->
+<div id="toast" class="toast fixed bottom-6 right-6 z-[200] glass-strong rounded-xl px-6 py-4 flex items-center gap-3 max-w-sm">
+  <span class="iconify text-green-400 text-xl" data-icon="mdi:check-circle"></span>
+  <span id="toastMsg" class="text-sm text-stone-200"></span>
+</div>
 
+<!-- Modal -->
+<div id="modal" class="modal-overlay fixed inset-0 z-[150] flex items-center justify-center p-4" style="background:rgba(0,0,0,0.7)">
+  <div class="modal-content glass-strong rounded-2xl p-8 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-500 hover:text-white transition-colors z-10">
+      <span class="iconify text-2xl" data-icon="mdi:close"></span>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[120] bg-[#0a0a0a]">
-  <div class="flex items-center justify-between p-6 border-b border-neutral-800"><span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span><button onclick="toggleMobileMenu()" class="text-stone-400 hover:text-white transition-colors"><span class="iconify text-2xl" data-icon="mdi:close"></span></button></div>
+  <div class="flex items-center justify-between p-6 border-b border-neutral-800">
+    <span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span>
+    <button onclick="toggleMobileMenu()" class="text-stone-400 hover:text-white transition-colors">
+      <span class="iconify text-2xl" data-icon="mdi:close"></span>
+    </button>
+  </div>
   <nav class="p-6 space-y-1">
     <a href="#home" onclick="toggleMobileMenu()" class="block py-3 px-4 text-stone-300 hover:text-white hover:bg-neutral-900 rounded-lg transition-all">Home</a>
     <a href="#about" onclick="toggleMobileMenu()" class="block py-3 px-4 text-stone-300 hover:text-white hover:bg-neutral-900 rounded-lg transition-all">About Us</a>
@@ -121,7 +165,9 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f4;overflow-x:
     <a href="#partnerships" onclick="toggleMobileMenu()" class="block py-3 px-4 text-stone-300 hover:text-white hover:bg-neutral-900 rounded-lg transition-all">Partnerships</a>
     <a href="#careers" onclick="toggleMobileMenu()" class="block py-3 px-4 text-stone-300 hover:text-white hover:bg-neutral-900 rounded-lg transition-all">Careers</a>
     <a href="#contact" onclick="toggleMobileMenu()" class="block py-3 px-4 text-stone-300 hover:text-white hover:bg-neutral-900 rounded-lg transition-all">Contact</a>
-    <div class="pt-4"><a href="#contact" onclick="toggleMobileMenu()" class="block w-full text-center py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors">Partner With Us</a></div>
+    <div class="pt-4">
+      <a href="#contact" onclick="toggleMobileMenu()" class="block w-full text-center py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors">Partner With Us</a>
+    </div>
   </nav>
 </div>
 
@@ -129,41 +175,53 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f4;overflow-x:
 <header id="navbar" class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-center justify-between h-20">
-      <a href="#home" class="flex items-center gap-3 group"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow"><span class="iconify text-white text-lg" data-icon="mdi:hexagon-multiple"></span></div><span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span></a>
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
+          <span class="iconify text-white text-lg" data-icon="mdi:hexagon-multiple"></span>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span>
+      </a>
       <nav class="hidden lg:flex items-center gap-1">
         <a href="#about" class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors">About</a>
-        <div class="dropdown relative"><button class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-1">Services <span class="iconify text-xs" data-icon="mdi:chevron-down"></span></button>
+        <div class="dropdown relative">
+          <button class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-1">Services <span class="iconify text-xs" data-icon="mdi:chevron-down"></span></button>
           <div class="dropdown-menu absolute top-full left-0 mt-2 w-72 glass-strong rounded-xl p-3 space-y-1">
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:lightbulb-on-outline"></span><div><div class="text-sm text-stone-200">Strategy & Consulting</div><div class="text-xs text-stone-500">Advisory & transformation</div></div></a>
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:bridge"></span><div><div class="text-sm text-stone-200">Engineering & Infrastructure</div><div class="text-xs text-stone-500">Design, PMC & planning</div></div></a>
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:cpu-64-bit"></span><div><div class="text-sm text-stone-200">Digital & Technology</div><div class="text-xs text-stone-500">AI, Cloud & Cybersecurity</div></div></a>
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:factory"></span><div><div class="text-sm text-stone-200">Industrial Systems</div><div class="text-xs text-stone-500">Automation & digital twins</div></div></a>
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:flask-outline"></span><div><div class="text-sm text-stone-200">Innovation & R&D</div><div class="text-xs text-stone-500">Labs & product dev</div></div></a>
-            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:city-variant-outline"></span><div><div class="text-sm text-stone-200">Urban & Social Dev</div><div class="text-xs text-stone-500">Smart cities & sustainability</div></div></a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:lightbulb-on-outline"></span>
+              <div><div class="text-sm text-stone-200">Strategy & Consulting</div><div class="text-xs text-stone-500">Advisory & transformation</div></div>
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:bridge"></span>
+              <div><div class="text-sm text-stone-200">Engineering & Infrastructure</div><div class="text-xs text-stone-500">Design, PMC & planning</div></div>
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:cpu-64-bit"></span>
+              <div><div class="text-sm text-stone-200">Digital & Technology</div><div class="text-xs text-stone-500">AI, Cloud & Cybersecurity</div></div>
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:factory"></span>
+              <div><div class="text-sm text-stone-200">Industrial Systems</div><div class="text-xs text-stone-500">Automation & digital twins</div></div>
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:flask-outline"></span>
+              <div><div class="text-sm text-stone-200">Innovation & R&D</div><div class="text-xs text-stone-500">Labs & product dev</div></div>
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group">
+              <span class="iconify text-blue-400 group-hover:scale-110 transition-transform" data-icon="mdi:city-variant-outline"></span>
+              <div><div class="text-sm text-stone-200">Urban & Social Dev</div><div class="text-xs text-stone-500">Smart cities & sustainability</div></div>
+            </a>
           </div>
         </div>
-        <div class="dropdown relative"><button class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-1">Industries <span class="iconify text-xs" data-icon="mdi:chevron-down"></span></button>
-          <div class="dropdown-menu absolute top-full left-0 mt-2 w-80 glass-strong rounded-xl p-3">
-            <div class="grid grid-cols-2 gap-1">
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(0),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:road-variant"></span><span class="text-xs text-stone-300">Infrastructure & Transport</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(1),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:lightning-bolt-outline"></span><span class="text-xs text-stone-300">Energy & Utilities</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(2),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:account-tie-outline"></span><span class="text-xs text-stone-300">Government & Public Sector</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(3),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:hospital-box-outline"></span><span class="text-xs text-stone-300">Healthcare</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(4),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:cellphone-link"></span><span class="text-xs text-stone-300">Telecom & Digital</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(5),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:cog-outline"></span><span class="text-xs text-stone-300">Manufacturing</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(6),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:pickaxe"></span><span class="text-xs text-stone-300">Mining & Resources</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(7),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:school-outline"></span><span class="text-xs text-stone-300">Education & Social</span></a>
-              <a href="#industries" onclick="setTimeout(()=>openIndustryModal(8),400);return false;" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors group col-span-2"><span class="iconify text-blue-400 text-sm group-hover:scale-110 transition-transform" data-icon="mdi:shield-airplane-outline"></span><span class="text-xs text-stone-300">Defense & Aerospace</span></a>
-            </div>
-          </div>
-        </div>
+        <a href="#industries" class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors">Industries</a>
         <a href="#solutions" class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors">Solutions</a>
         <a href="#insights" class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors">Insights</a>
         <a href="#careers" class="nav-link px-4 py-2 text-sm text-stone-400 hover:text-white transition-colors">Careers</a>
       </nav>
       <div class="flex items-center gap-3">
         <a href="#contact" class="hidden md:inline-flex btn-primary bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg">Partner With Us</a>
-        <button onclick="toggleMobileMenu()" class="lg:hidden text-stone-400 hover:text-white transition-colors p-2"><span class="iconify text-2xl" data-icon="mdi:menu"></span></button>
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-stone-400 hover:text-white transition-colors p-2">
+          <span class="iconify text-2xl" data-icon="mdi:menu"></span>
+        </button>
       </div>
     </div>
   </div>
@@ -171,219 +229,606 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f4;overflow-x:
 
 <!-- ==================== HERO SLIDER ==================== -->
 <section id="home" class="relative h-screen min-h-[700px] max-h-[1000px] overflow-hidden">
+  <!-- Slide 1 - Main -->
   <div class="hero-slide active" data-slide="0">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop')"></div>
+    <div class="slide-bg" style="background-image:url('https://picsum.photos/seed/aditattva-hero1/1920/1080.jpg')"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
-    <div class="slide-content absolute inset-0 flex items-center"><div class="max-w-7xl mx-auto px-6 w-full pt-20"><div class="max-w-2xl">
-      <div class="slide-tag mb-6"><span class="w-2 h-2 bg-blue-400 rounded-full pulse-glow"></span> Global Professional Services</div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"><span class="text-white">Engineering Intelligence.</span><br><span class="text-gradient-blue">Enabling Transformation.</span></h1>
-      <p class="text-lg md:text-xl font-light text-stone-400 max-w-xl mb-10 leading-relaxed">Global Consulting, Engineering & Technology Solutions for Governments, Enterprises & Future Cities.</p>
-      <div class="flex flex-col sm:flex-row gap-4"><a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Services <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Partner With Us <span class="iconify" data-icon="mdi:handshake-outline"></span></a></div>
-    </div></div></div>
+    <div class="slide-content absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="slide-tag mb-6">
+            <span class="w-2 h-2 bg-blue-400 rounded-full pulse-glow"></span>
+            Global Professional Services
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+            <span class="text-white">Engineering Intelligence.</span><br>
+            <span class="text-gradient-blue">Enabling Transformation.</span>
+          </h1>
+          <p class="text-lg md:text-xl font-light text-stone-400 max-w-xl mb-10 leading-relaxed">
+            Global Consulting, Engineering & Technology Solutions for Governments, Enterprises & Future Cities.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Services <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+            <a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Partner With Us <span class="iconify" data-icon="mdi:handshake-outline"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Slide 2 - Infrastructure -->
   <div class="hero-slide" data-slide="1">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1545296664-39db56ad95bd?w=1920&h=1080&fit=crop')"></div>
+    <div class="slide-bg" style="background-image:url('https://picsum.photos/seed/aditattva-infra/1920/1080.jpg')"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
-    <div class="slide-content absolute inset-0 flex items-center"><div class="max-w-7xl mx-auto px-6 w-full pt-20"><div class="max-w-2xl">
-      <div class="slide-tag mb-6"><span class="iconify text-blue-400" data-icon="mdi:bridge"></span> Engineering & Infrastructure</div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6"><span class="text-white">Building Nations Through</span><br><span class="text-gradient-blue">Infrastructure Excellence</span></h1>
-      <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">Design engineering, PMC, and technical advisory for roads, rail, metro, ports, airports — from concept to commissioning.</p>
-      <div class="flex flex-col sm:flex-row gap-4"><a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Engineering <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Discuss a Project</a></div>
-    </div></div></div>
+    <div class="slide-content absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="slide-tag mb-6">
+            <span class="iconify text-blue-400" data-icon="mdi:bridge"></span>
+            Engineering & Infrastructure
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6">
+            <span class="text-white">Building Nations Through</span><br>
+            <span class="text-gradient-blue">Infrastructure Excellence</span>
+          </h1>
+          <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">
+            Design engineering, PMC, and technical advisory for roads, rail, metro, ports, airports — from concept to commissioning.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Engineering <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+            <a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Discuss a Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Slide 3 - Digital -->
   <div class="hero-slide" data-slide="2">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop')"></div>
+    <div class="slide-bg" style="background-image:url('https://picsum.photos/seed/aditattva-digital/1920/1080.jpg')"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
-    <div class="slide-content absolute inset-0 flex items-center"><div class="max-w-7xl mx-auto px-6 w-full pt-20"><div class="max-w-2xl">
-      <div class="slide-tag mb-6"><span class="iconify text-blue-400" data-icon="mdi:cpu-64-bit"></span> Digital & Technology</div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6"><span class="text-white">Powering the</span><br><span class="text-gradient-blue">Digital-First Future</span></h1>
-      <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">AI & data analytics, cloud solutions, cybersecurity, and smart platforms — engineered for governments and enterprises.</p>
-      <div class="flex flex-col sm:flex-row gap-4"><a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Digital <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="#solutions" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">View Solutions</a></div>
-    </div></div></div>
+    <div class="slide-content absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="slide-tag mb-6">
+            <span class="iconify text-blue-400" data-icon="mdi:cpu-64-bit"></span>
+            Digital & Technology
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6">
+            <span class="text-white">Powering the</span><br>
+            <span class="text-gradient-blue">Digital-First Future</span>
+          </h1>
+          <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">
+            AI & data analytics, cloud solutions, cybersecurity, and smart platforms — engineered for governments and enterprises.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Explore Digital <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+            <a href="#solutions" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">View Solutions</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Slide 4 - Smart Cities -->
   <div class="hero-slide" data-slide="3">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&h=1080&fit=crop')"></div>
+    <div class="slide-bg" style="background-image:url('https://picsum.photos/seed/aditattva-smartcity/1920/1080.jpg')"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
-    <div class="slide-content absolute inset-0 flex items-center"><div class="max-w-7xl mx-auto px-6 w-full pt-20"><div class="max-w-2xl">
-      <div class="slide-tag mb-6"><span class="iconify text-blue-400" data-icon="mdi:city-variant-outline"></span> Urban & Social Development</div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6"><span class="text-white">Smart Cities.</span><br><span class="text-gradient-blue">Smarter Lives.</span></h1>
-      <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">End-to-end smart city platforms — integrated command centers, intelligent mobility, urban analytics, and sustainability frameworks.</p>
-      <div class="flex flex-col sm:flex-row gap-4"><a href="#solutions" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Smart City Solutions <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Get in Touch</a></div>
-    </div></div></div>
+    <div class="slide-content absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="slide-tag mb-6">
+            <span class="iconify text-blue-400" data-icon="mdi:city-variant-outline"></span>
+            Urban & Social Development
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6">
+            <span class="text-white">Smart Cities.</span><br>
+            <span class="text-gradient-blue">Smarter Lives.</span>
+          </h1>
+          <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">
+            End-to-end smart city platforms — integrated command centers, intelligent mobility, urban analytics, and sustainability frameworks.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#solutions" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Smart City Solutions <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+            <a href="#contact" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Slide 5 - Sustainability -->
   <div class="hero-slide" data-slide="4">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&h=1080&fit=crop')"></div>
+    <div class="slide-bg" style="background-image:url('https://picsum.photos/seed/aditattva-green/1920/1080.jpg')"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
-    <div class="slide-content absolute inset-0 flex items-center"><div class="max-w-7xl mx-auto px-6 w-full pt-20"><div class="max-w-2xl">
-      <div class="slide-tag mb-6"><span class="iconify text-green-400" data-icon="mdi:leaf"></span> ESG & Sustainability</div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6"><span class="text-white">Sustainable Solutions</span><br><span class="text-gradient-blue">For Tomorrow</span></h1>
-      <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">Climate-resilient infrastructure, ESG frameworks, carbon accounting, and sustainable energy systems for a net-zero future.</p>
-      <div class="flex flex-col sm:flex-row gap-4"><a href="#solutions" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">ESG Solutions <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="#insights" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Read Insights</a></div>
-    </div></div></div>
+    <div class="slide-content absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="slide-tag mb-6">
+            <span class="iconify text-green-400" data-icon="mdi:leaf"></span>
+            ESG & Sustainability
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight mb-6">
+            <span class="text-white">Sustainable Solutions</span><br>
+            <span class="text-gradient-blue">For Tomorrow</span>
+          </h1>
+          <p class="text-lg font-light text-stone-400 max-w-xl mb-10 leading-relaxed">
+            Climate-resilient infrastructure, ESG frameworks, carbon accounting, and sustainable energy systems for a net-zero future.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#solutions" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">ESG Solutions <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+            <a href="#insights" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2 justify-center">Read Insights</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="absolute bottom-10 left-0 right-0 z-20"><div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-    <div class="flex items-center gap-2" id="heroDots"><button class="hero-dot active" data-goto="0"></button><button class="hero-dot" data-goto="1"></button><button class="hero-dot" data-goto="2"></button><button class="hero-dot" data-goto="3"></button><button class="hero-dot" data-goto="4"></button></div>
-    <div class="hidden md:flex items-center gap-2"><span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Consulting</span><span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Engineering</span><span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Digital</span><span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Infrastructure</span></div>
-    <div class="flex items-center gap-2"><button class="hero-arrow" id="heroPrev"><span class="iconify text-lg" data-icon="mdi:chevron-left"></span></button><button class="hero-arrow" id="heroNext"><span class="iconify text-lg" data-icon="mdi:chevron-right"></span></button></div>
-  </div></div>
-  <div class="absolute top-24 right-6 z-20 hidden md:flex flex-col items-center gap-2"><span class="text-3xl font-bold text-white" id="slideCounterNum">01</span><div class="w-px h-8 bg-neutral-700"></div><span class="text-xs text-stone-600">05</span></div>
+
+  <!-- Slider Controls -->
+  <div class="absolute bottom-10 left-0 right-0 z-20">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <!-- Dots -->
+      <div class="flex items-center gap-2" id="heroDots">
+        <button class="hero-dot active" data-goto="0"></button>
+        <button class="hero-dot" data-goto="1"></button>
+        <button class="hero-dot" data-goto="2"></button>
+        <button class="hero-dot" data-goto="3"></button>
+        <button class="hero-dot" data-goto="4"></button>
+      </div>
+      <!-- Capability Pills -->
+      <div class="hidden md:flex items-center gap-2">
+        <span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Consulting</span>
+        <span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Engineering</span>
+        <span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Digital</span>
+        <span class="capability-pill border border-neutral-700/50 rounded-full px-3 py-1 text-[10px] font-medium text-stone-400">Infrastructure</span>
+      </div>
+      <!-- Arrows -->
+      <div class="flex items-center gap-2">
+        <button class="hero-arrow" id="heroPrev"><span class="iconify text-lg" data-icon="mdi:chevron-left"></span></button>
+        <button class="hero-arrow" id="heroNext"><span class="iconify text-lg" data-icon="mdi:chevron-right"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide Counter -->
+  <div class="absolute top-24 right-6 z-20 hidden md:flex flex-col items-center gap-2">
+    <span class="text-3xl font-bold text-white" id="slideCounterNum">01</span>
+    <div class="w-px h-8 bg-neutral-700"></div>
+    <span class="text-xs text-stone-600">05</span>
+  </div>
 </section>
 
-<!-- STATS -->
+<!-- ==================== STATS BAR ==================== -->
 <section class="relative z-10 border-y border-neutral-800/50 bg-neutral-950/50">
   <div class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-      <div class="text-center animate-in"><div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="18">0</div><div class="text-xs uppercase tracking-wider text-stone-500">Industry Verticals</div></div>
-      <div class="text-center animate-in delay-1"><div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="6">0</div><div class="text-xs uppercase tracking-wider text-stone-500">Business Units</div></div>
-      <div class="text-center animate-in delay-2"><div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="50" data-suffix="+">0</div><div class="text-xs uppercase tracking-wider text-stone-500">Global Engagements</div></div>
-      <div class="text-center animate-in delay-3"><div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="9" data-suffix="+">0</div><div class="text-xs uppercase tracking-wider text-stone-500">Industry Sectors</div></div>
+      <div class="text-center animate-in">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="18">0</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Industry Verticals</div>
+      </div>
+      <div class="text-center animate-in delay-1">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="6">0</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Business Units</div>
+      </div>
+      <div class="text-center animate-in delay-2">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="50" data-suffix="+">0</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Global Engagements</div>
+      </div>
+      <div class="text-center animate-in delay-3">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-white mb-1" data-target="9" data-suffix="+">0</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Industry Sectors</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-24 md:py-32 relative sec-about">
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="py-24 md:py-32 relative section-bg" style="--bg-img:url('https://picsum.photos/seed/sec-about-bg/1920/1080.jpg')">
+  <div class="deco-circle w-[400px] h-[400px] -top-40 -right-40"></div>
+  <div class="deco-line h-32 top-0 left-[15%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <div class="animate-in flex items-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">About ADITATTVA</span></div>
-        <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">Building the Next-Generation<br><span class="text-gradient">Global Professional Services</span><br>Company from India.</h2>
-        <p class="animate-in delay-2 text-stone-400 font-light leading-relaxed mb-8">ADITATTVA is a global professional services organization headquartered in India, delivering integrated consulting, engineering, and technology solutions across 18 industry verticals. We serve governments, enterprises, and institutions with an end-to-end delivery model that spans strategy through execution.</p>
-        <p class="animate-in delay-3 text-stone-400 font-light leading-relaxed mb-10">Our integrated approach combines deep domain expertise with cutting-edge technology capabilities — enabling transformation at scale for the world's most complex challenges.</p>
+        <div class="animate-in flex items-center gap-3 mb-6">
+          <div class="w-8 h-px bg-blue-500"></div>
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">About ADITATTVA</span>
+        </div>
+        <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">
+          Building the Next-Generation<br>
+          <span class="text-gradient">Global Professional Services</span><br>
+          Company from India.
+        </h2>
+        <p class="animate-in delay-2 text-stone-400 font-light leading-relaxed mb-8">
+          ADITATTVA is a global professional services organization headquartered in India, delivering integrated consulting, engineering, and technology solutions across 18 industry verticals. We serve governments, enterprises, and institutions with an end-to-end delivery model that spans strategy through execution.
+        </p>
+        <p class="animate-in delay-3 text-stone-400 font-light leading-relaxed mb-10">
+          Our integrated approach combines deep domain expertise with cutting-edge technology capabilities — enabling transformation at scale for the world's most complex challenges.
+        </p>
         <div class="animate-in delay-4 flex flex-wrap gap-4">
           <a href="#services" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-xl text-sm flex items-center gap-2">Our Capabilities <span class="iconify" data-icon="mdi:arrow-right"></span></a>
-          <button onclick="openProfileModal()" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-6 py-3 rounded-xl text-sm flex items-center gap-2"><span class="iconify" data-icon="mdi:file-download-outline"></span> Download Profile</button>
+          <button onclick="openProfileModal()" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-6 py-3 rounded-xl text-sm flex items-center gap-2">
+            <span class="iconify" data-icon="mdi:file-download-outline"></span> Download Profile
+          </button>
         </div>
       </div>
       <div class="animate-in delay-3 relative">
         <div class="relative rounded-2xl overflow-hidden border border-neutral-800 aspect-[4/3]">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="ADITATTVA Global Operations" class="w-full h-full object-cover opacity-70">
+          <img src="https://picsum.photos/seed/aditattva-hq/800/600.jpg" alt="ADITATTVA Global Operations" class="w-full h-full object-cover opacity-70">
           <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6"><div class="glass rounded-xl p-5"><div class="grid grid-cols-3 gap-4 text-center"><div><div class="text-2xl font-bold text-white">18</div><div class="text-[10px] uppercase tracking-wider text-stone-400">Verticals</div></div><div><div class="text-2xl font-bold text-white">6</div><div class="text-[10px] uppercase tracking-wider text-stone-400">BU's</div></div><div><div class="text-2xl font-bold text-white">E2E</div><div class="text-[10px] uppercase tracking-wider text-stone-400">Delivery</div></div></div></div></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <div class="glass rounded-xl p-5">
+              <div class="grid grid-cols-3 gap-4 text-center">
+                <div><div class="text-2xl font-bold text-white">18</div><div class="text-[10px] uppercase tracking-wider text-stone-400">Verticals</div></div>
+                <div><div class="text-2xl font-bold text-white">6</div><div class="text-[10px] uppercase tracking-wider text-stone-400">BU's</div></div>
+                <div><div class="text-2xl font-bold text-white">E2E</div><div class="text-[10px] uppercase tracking-wider text-stone-400">Delivery</div></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="absolute -top-4 -right-4 w-24 h-24 border border-blue-500/10 rounded-2xl"></div>
         <div class="absolute -bottom-4 -left-4 w-32 h-32 border border-neutral-800/50 rounded-2xl"></div>
       </div>
     </div>
+
     <div class="grid md:grid-cols-2 gap-6 mt-20">
-      <div class="animate-in glass rounded-2xl p-8 card-hover"><div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><span class="iconify text-2xl text-blue-400 icon-float" data-icon="mdi:eye-outline"></span></div><h3 class="text-xl font-semibold tracking-tight text-white mb-3">Our Vision</h3><p class="text-stone-400 font-light leading-relaxed">To be the world's most trusted integrated professional services firm — building intelligent infrastructure, enabling digital transformation, and creating sustainable value for nations and enterprises.</p></div>
-      <div class="animate-in delay-1 glass rounded-2xl p-8 card-hover"><div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><span class="iconify text-2xl text-blue-400 icon-float" data-icon="mdi:target"></span></div><h3 class="text-xl font-semibold tracking-tight text-white mb-3">Our Mission</h3><p class="text-stone-400 font-light leading-relaxed">Deliver engineering intelligence at every scale — from national policy to last-mile implementation — by combining deep expertise, global delivery models, and relentless innovation across our 18 verticals.</p></div>
+      <div class="animate-in glass rounded-2xl p-8 card-hover">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+          <span class="iconify text-2xl text-blue-400 icon-float" data-icon="mdi:eye-outline"></span>
+        </div>
+        <h3 class="text-xl font-semibold tracking-tight text-white mb-3">Our Vision</h3>
+        <p class="text-stone-400 font-light leading-relaxed">To be the world's most trusted integrated professional services firm — building intelligent infrastructure, enabling digital transformation, and creating sustainable value for nations and enterprises.</p>
+      </div>
+      <div class="animate-in delay-1 glass rounded-2xl p-8 card-hover">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+          <span class="iconify text-2xl text-blue-400 icon-float" data-icon="mdi:target"></span>
+        </div>
+        <h3 class="text-xl font-semibold tracking-tight text-white mb-3">Our Mission</h3>
+        <p class="text-stone-400 font-light leading-relaxed">Deliver engineering intelligence at every scale — from national policy to last-mile implementation — by combining deep expertise, global delivery models, and relentless innovation across our 18 verticals.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 6 BUSINESS UNITS -->
-<section id="services" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-services">
+<!-- ==================== 6 BUSINESS UNITS ==================== -->
+<section id="services" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg section-bg-dark" style="--bg-img:url('https://picsum.photos/seed/sec-services-bg/1920/1080.jpg')">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/3 rounded-full blur-[120px]"></div>
+  <div class="deco-circle w-[300px] h-[300px] bottom-20 -left-32"></div>
+  <div class="deco-line h-40 top-10 right-[10%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <div class="animate-in flex items-center justify-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Business Units</span><div class="w-8 h-px bg-blue-500"></div></div>
+      <div class="animate-in flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-blue-500"></div>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Business Units</span>
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
       <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Six Pillars of <span class="text-gradient-blue">Capability</span></h2>
       <p class="animate-in delay-2 text-stone-400 font-light max-w-2xl mx-auto">Our integrated business units deliver end-to-end solutions across the full spectrum of consulting, engineering, and technology.</p>
     </div>
+
+    <!-- BU Hex Graphic -->
+    <div class="animate-in delay-1 flex justify-center mb-12">
+      <div class="relative w-64 h-64 hidden lg:block">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-20 h-20 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+            <span class="iconify text-3xl text-blue-400" data-icon="mdi:hexagon-multiple"></span>
+          </div>
+        </div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:lightbulb-on-outline"></span></div></div>
+        <div class="absolute top-[15%] right-[5%]"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:bridge"></span></div></div>
+        <div class="absolute bottom-[15%] right-[5%]"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:cpu-64-bit"></span></div></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:factory"></span></div></div>
+        <div class="absolute bottom-[15%] left-[5%]"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:flask-outline"></span></div></div>
+        <div class="absolute top-[15%] left-[5%]"><div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center"><span class="iconify text-lg text-blue-400" data-icon="mdi:city-variant-outline"></span></div></div>
+      </div>
+    </div>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="animate-in glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(0)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:lightbulb-on-outline"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Strategy & Consulting</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Management consulting, policy advisory, PPP structuring, investment advisory, and ESG consulting.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Policy Advisory</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">PPP</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">ESG</span></div></div>
+      <div class="animate-in glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(0)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:lightbulb-on-outline"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Strategy & Consulting</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Management consulting, policy advisory, PPP structuring, investment advisory, and ESG consulting for governments and enterprises.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Policy Advisory</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">PPP</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">ESG</span>
+        </div>
       </div>
-      <div class="animate-in delay-1 glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(1)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:bridge"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Engineering & Infrastructure</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Design engineering, PMC, infrastructure planning, and technical advisory for large-scale projects.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Design Eng</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">PMC</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Tech Advisory</span></div></div>
+      <div class="animate-in delay-1 glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(1)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:bridge"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Engineering & Infrastructure</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Design engineering, project management consultancy, infrastructure planning, and technical advisory for large-scale projects.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Design Eng</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">PMC</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Tech Advisory</span>
+        </div>
       </div>
-      <div class="animate-in delay-2 glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(2)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:cpu-64-bit"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Digital & Technology</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">AI & data analytics, cloud solutions, cybersecurity, smart platforms, and enterprise transformation.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">AI & Data</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Cloud</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Cybersecurity</span></div></div>
+      <div class="animate-in delay-2 glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(2)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:cpu-64-bit"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Digital & Technology</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">AI & data analytics, cloud solutions, cybersecurity, smart platforms, and enterprise digital transformation.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">AI & Data</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Cloud</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Cybersecurity</span>
+        </div>
       </div>
-      <div class="animate-in delay-3 glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(3)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:factory"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Industrial & Advanced Systems</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Industrial automation, smart manufacturing, energy systems, and industrial digital twins.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Automation</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Industry 4.0</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Digital Twins</span></div></div>
+      <div class="animate-in delay-3 glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(3)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:factory"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Industrial & Advanced Systems</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Industrial automation, smart manufacturing, energy systems, and industrial digital twins for Industry 4.0 transformation.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Automation</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Industry 4.0</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Digital Twins</span>
+        </div>
       </div>
-      <div class="animate-in delay-4 glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(4)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:flask-outline"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Innovation & R&D</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Innovation labs, product development, applied research, and technology incubation programs.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Innovation Labs</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Product Dev</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Research</span></div></div>
+      <div class="animate-in delay-4 glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(4)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:flask-outline"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Innovation & R&D</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Innovation labs, product development, applied research programs, and technology incubation for next-gen solutions.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Innovation Labs</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Product Dev</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Research</span>
+        </div>
       </div>
-      <div class="animate-in delay-5 glass rounded-2xl overflow-hidden card-hover group cursor-pointer relative" onclick="openBUModal(5)">
-        <div class="bu-card-graphic"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500&h=400&fit=crop" alt=""><div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-transparent"></div></div>
-        <div class="relative p-8 z-10"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow"><span class="iconify text-2xl text-blue-400" data-icon="mdi:city-variant-outline"></span></div><h3 class="text-lg font-semibold tracking-tight text-white mb-3">Urban & Social Development</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Smart city planning, sustainability frameworks, public program design, and social infrastructure.</p><div class="flex flex-wrap gap-2"><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Smart Cities</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Sustainability</span><span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Public Programs</span></div></div>
+      <div class="animate-in delay-5 glass rounded-2xl p-8 card-hover group cursor-pointer" onclick="openBUModal(5)">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-shadow">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:city-variant-outline"></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-3">Urban & Social Development</h3>
+        <p class="text-sm text-stone-400 font-light leading-relaxed mb-5">Smart city planning, sustainability frameworks, public program design, and social infrastructure development.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Smart Cities</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Sustainability</span>
+          <span class="text-[10px] px-2.5 py-1 rounded-full bg-neutral-800/80 text-stone-400">Public Programs</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INDUSTRIES -->
-<section id="industries" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-industries">
+<!-- ==================== INDUSTRIES ==================== -->
+<section id="industries" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg" style="--bg-img:url('https://picsum.photos/seed/sec-industries-bg/1920/1080.jpg')">
+  <div class="absolute top-1/3 right-0 w-[400px] h-[400px] bg-indigo-500/3 rounded-full blur-[120px]"></div>
+  <div class="deco-circle w-[250px] h-[250px] top-10 right-[15%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-5 gap-12 items-start">
       <div class="lg:col-span-2">
-        <div class="animate-in flex items-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Industries</span></div>
+        <div class="animate-in flex items-center gap-3 mb-6">
+          <div class="w-8 h-px bg-blue-500"></div>
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Industries</span>
+        </div>
         <h2 class="animate-in delay-1 text-3xl md:text-4xl font-bold tracking-tight mb-4">Industries We <span class="text-gradient-blue">Transform</span></h2>
-        <p class="animate-in delay-2 text-stone-400 font-light mb-8">Deep domain expertise across nine critical sectors. Click any sector to explore details.</p>
-        <div class="animate-in delay-3 rounded-xl overflow-hidden border border-neutral-800 aspect-[3/2] relative"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Industries" class="w-full h-full object-cover opacity-40"></div>
+        <p class="animate-in delay-2 text-stone-400 font-light mb-8">Deep domain expertise across nine critical sectors — from nation-building infrastructure to next-generation digital economy.</p>
+        <div class="animate-in delay-3 rounded-xl overflow-hidden border border-neutral-800 aspect-[3/2]">
+          <img src="https://picsum.photos/seed/industries-graphic/600/400.jpg" alt="Industries" class="w-full h-full object-cover opacity-40">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
+        </div>
       </div>
       <div class="lg:col-span-3">
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div class="animate-in industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(0)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:road-variant"></span><div class="text-sm font-medium text-white mb-1">Infrastructure & Transport</div><div class="text-[11px] text-stone-500">Roads, Rail, Metro, Ports</div></div>
-          <div class="animate-in delay-1 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(1)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:lightning-bolt-outline"></span><div class="text-sm font-medium text-white mb-1">Energy & Utilities</div><div class="text-[11px] text-stone-500">Power, Renewables, Water</div></div>
-          <div class="animate-in delay-2 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(2)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:account-tie-outline"></span><div class="text-sm font-medium text-white mb-1">Government & Public</div><div class="text-[11px] text-stone-500">Central, State, ULB's</div></div>
-          <div class="animate-in delay-3 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(3)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:hospital-box-outline"></span><div class="text-sm font-medium text-white mb-1">Healthcare</div><div class="text-[11px] text-stone-500">Hospitals, Public Health</div></div>
-          <div class="animate-in delay-4 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(4)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:cellphone-link"></span><div class="text-sm font-medium text-white mb-1">Telecom & Digital</div><div class="text-[11px] text-stone-500">5G, Fiber, Data Centers</div></div>
-          <div class="animate-in delay-5 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(5)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:cog-outline"></span><div class="text-sm font-medium text-white mb-1">Manufacturing</div><div class="text-[11px] text-stone-500">Auto, FMCG, Electronics</div></div>
-          <div class="animate-in delay-6 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(6)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:pickaxe"></span><div class="text-sm font-medium text-white mb-1">Mining & Resources</div><div class="text-[11px] text-stone-500">Minerals, Metals, Coal</div></div>
-          <div class="animate-in delay-7 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(7)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:school-outline"></span><div class="text-sm font-medium text-white mb-1">Education & Social</div><div class="text-[11px] text-stone-500">Skilling, Edu-Tech</div></div>
-          <div class="animate-in delay-8 industry-card glass rounded-xl p-6 text-center cursor-pointer" onclick="openIndustryModal(8)"><span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:shield-airplane-outline"></span><div class="text-sm font-medium text-white mb-1">Defense & Aerospace</div><div class="text-[11px] text-stone-500">Strategic Systems, R&D</div></div>
+          <div class="animate-in industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:road-variant"></span>
+            <div class="text-sm font-medium text-white mb-1">Infrastructure & Transport</div>
+            <div class="text-[11px] text-stone-500">Roads, Rail, Metro, Ports</div>
+          </div>
+          <div class="animate-in delay-1 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:lightning-bolt-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Energy & Utilities</div>
+            <div class="text-[11px] text-stone-500">Power, Renewables, Water</div>
+          </div>
+          <div class="animate-in delay-2 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:account-tie-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Government & Public Sector</div>
+            <div class="text-[11px] text-stone-500">Central, State, ULB's</div>
+          </div>
+          <div class="animate-in delay-3 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:hospital-box-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Healthcare</div>
+            <div class="text-[11px] text-stone-500">Hospitals, Public Health</div>
+          </div>
+          <div class="animate-in delay-4 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:cellphone-link"></span>
+            <div class="text-sm font-medium text-white mb-1">Telecom & Digital</div>
+            <div class="text-[11px] text-stone-500">5G, Fiber, Data Centers</div>
+          </div>
+          <div class="animate-in delay-5 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:cog-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Manufacturing</div>
+            <div class="text-[11px] text-stone-500">Auto, FMCG, Electronics</div>
+          </div>
+          <div class="animate-in delay-6 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:pickaxe"></span>
+            <div class="text-sm font-medium text-white mb-1">Mining & Resources</div>
+            <div class="text-[11px] text-stone-500">Minerals, Metals, Coal</div>
+          </div>
+          <div class="animate-in delay-7 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:school-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Education & Social</div>
+            <div class="text-[11px] text-stone-500">Skilling, Edu-Tech</div>
+          </div>
+          <div class="animate-in delay-8 industry-card glass rounded-xl p-6 text-center cursor-pointer">
+            <span class="iconify industry-icon text-3xl text-stone-400 mb-3 block mx-auto" data-icon="mdi:shield-airplane-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Defense & Aerospace</div>
+            <div class="text-[11px] text-stone-500">Strategic Systems, R&D</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOLUTIONS -->
-<section id="solutions" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-solutions">
+<!-- ==================== SOLUTIONS ==================== -->
+<section id="solutions" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg section-bg-dark" style="--bg-img:url('https://picsum.photos/seed/sec-solutions-bg/1920/1080.jpg')">
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-500/3 rounded-full blur-[120px]"></div>
+  <div class="deco-circle w-[350px] h-[350px] -bottom-24 -left-24"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <div class="animate-in flex items-center justify-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Solutions</span><div class="w-8 h-px bg-blue-500"></div></div>
+      <div class="animate-in flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-blue-500"></div>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Solutions</span>
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
       <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Problem-Driven <span class="text-gradient-blue">Solutions</span></h2>
-      <p class="animate-in delay-2 text-stone-400 font-light max-w-2xl mx-auto">Purpose-built solutions for the most complex challenges facing governments and enterprises.</p>
+      <p class="animate-in delay-2 text-stone-400 font-light max-w-2xl mx-auto">Purpose-built solutions addressing the most complex challenges facing governments and enterprises today.</p>
     </div>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="animate-in solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Urban Tech</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Smart City Solutions</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">End-to-end smart city platforms — integrated command centers, intelligent mobility, urban analytics.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
-      <div class="animate-in delay-1 solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">GovTech</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Digital Governance</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Citizen-centric e-governance platforms, digital public infrastructure, process re-engineering at scale.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
-      <div class="animate-in delay-2 solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Infra Advisory</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Sustainable Infrastructure</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Climate-resilient planning, green building advisory, sustainable asset lifecycle management.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
-      <div class="animate-in delay-3 solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">ESG Strategy</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Climate & ESG</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">ESG frameworks, carbon accounting, climate risk assessment, sustainability reporting.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
-      <div class="animate-in delay-4 solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">AI & Automation</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">AI Transformation</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Enterprise AI strategy, ML operations, intelligent automation, AI-powered decision systems.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
-      <div class="animate-in delay-5 solution-card glass rounded-2xl overflow-hidden card-hover group"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Finance Advisory</span></div></div><div class="p-6"><h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Infrastructure Finance</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-4">PPP structuring, project finance advisory, fund mobilization, viability gap analysis.</p><a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a></div></div>
+      <div class="animate-in solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/smartcity-adt/600/400.jpg" alt="Smart Cities" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Urban Tech</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Smart City Solutions</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">End-to-end smart city platforms — from integrated command centers to intelligent mobility, surveillance, and urban analytics.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="animate-in delay-1 solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/digitalgov-adt/600/400.jpg" alt="Digital Governance" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">GovTech</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Digital Governance</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Citizen-centric e-governance platforms, digital public infrastructure, and government process re-engineering at scale.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="animate-in delay-2 solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/infrabuild-adt/600/400.jpg" alt="Sustainable Infrastructure" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Infra Advisory</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Sustainable Infrastructure</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Climate-resilient infrastructure planning, green building advisory, and sustainable asset lifecycle management.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="animate-in delay-3 solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/climateesg-adt/600/400.jpg" alt="Climate & ESG" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">ESG Strategy</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Climate & ESG</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Comprehensive ESG frameworks, carbon accounting, climate risk assessment, and sustainability reporting.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="animate-in delay-4 solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/aitransform-adt/600/400.jpg" alt="AI Transformation" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">AI & Automation</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">AI Transformation</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">Enterprise AI strategy, ML operations, intelligent automation, and AI-powered decision systems.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="animate-in delay-5 solution-card glass rounded-2xl overflow-hidden card-hover group">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/infrafinance-adt/600/400.jpg" alt="Infrastructure Finance" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Finance Advisory</span></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">Infrastructure Finance</h3>
+          <p class="text-sm text-stone-400 font-light leading-relaxed mb-4">PPP structuring, project finance advisory, fund mobilization strategy, and viability gap analysis.</p>
+          <a href="#contact" class="text-xs text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">Learn More <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- GLOBAL DELIVERY -->
-<section class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-delivery">
+<!-- ==================== GLOBAL DELIVERY MODEL ==================== -->
+<section class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg" style="--bg-img:url('https://picsum.photos/seed/sec-delivery-bg/1920/1080.jpg')">
+  <div class="deco-circle w-[200px] h-[200px] top-20 left-[8%]"></div>
+  <div class="deco-line h-48 bottom-10 left-[25%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div class="animate-in order-2 lg:order-1"><div class="relative rounded-2xl overflow-hidden border border-neutral-800 aspect-square"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&h=700&fit=crop" alt="Global Delivery" class="w-full h-full object-cover opacity-50"><div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a]/80 to-[#0a0a0a]/40"></div><div class="absolute inset-0 flex items-center justify-center"><div class="grid grid-cols-3 gap-3 p-8 w-full max-w-sm"><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:strategy"></span><div class="text-[10px] text-stone-300 font-medium">Strategy</div></div><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:draw"></span><div class="text-[10px] text-stone-300 font-medium">Design</div></div><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:code-braces"></span><div class="text-[10px] text-stone-300 font-medium">Build</div></div><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:truck-delivery-outline"></span><div class="text-[10px] text-stone-300 font-medium">Deploy</div></div><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:chart-line"></span><div class="text-[10px] text-stone-300 font-medium">Optimize</div></div><div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:infinity"></span><div class="text-[10px] text-stone-300 font-medium">Sustain</div></div></div></div></div></div>
+      <div class="animate-in order-2 lg:order-1">
+        <div class="relative rounded-2xl overflow-hidden border border-neutral-800 aspect-square">
+          <img src="https://picsum.photos/seed/globalmodel-adt/700/700.jpg" alt="Global Delivery Model" class="w-full h-full object-cover opacity-50">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a]/80 to-[#0a0a0a]/40"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="grid grid-cols-3 gap-3 p-8 w-full max-w-sm">
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:strategy"></span><div class="text-[10px] text-stone-300 font-medium">Strategy</div></div>
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:draw"></span><div class="text-[10px] text-stone-300 font-medium">Design</div></div>
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:code-braces"></span><div class="text-[10px] text-stone-300 font-medium">Build</div></div>
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:truck-delivery-outline"></span><div class="text-[10px] text-stone-300 font-medium">Deploy</div></div>
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:chart-line"></span><div class="text-[10px] text-stone-300 font-medium">Optimize</div></div>
+              <div class="glass rounded-xl p-4 text-center"><span class="iconify text-2xl text-blue-400 mb-2 block" data-icon="mdi:infinity"></span><div class="text-[10px] text-stone-300 font-medium">Sustain</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="order-1 lg:order-2">
-        <div class="animate-in flex items-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Global Delivery Model</span></div>
+        <div class="animate-in flex items-center gap-3 mb-6">
+          <div class="w-8 h-px bg-blue-500"></div>
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Global Delivery Model</span>
+        </div>
         <h2 class="animate-in delay-1 text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-6">From Strategy to<br><span class="text-gradient-blue">Sustained Outcomes</span></h2>
         <p class="animate-in delay-2 text-stone-400 font-light leading-relaxed mb-8">Our proprietary delivery model integrates six phases into a seamless framework ensuring every engagement delivers measurable, lasting impact.</p>
         <div class="space-y-4">
-          <div class="animate-in delay-3 flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div><div><div class="text-sm font-medium text-white">Integrated Multi-BU Delivery</div><div class="text-xs text-stone-500 mt-1">Multiple business units collaborate on every engagement.</div></div></div>
-          <div class="animate-in delay-4 flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div><div><div class="text-sm font-medium text-white">Global Talent, Local Execution</div><div class="text-xs text-stone-500 mt-1">India-based delivery with on-ground teams worldwide.</div></div></div>
-          <div class="animate-in delay-5 flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div><div><div class="text-sm font-medium text-white">Technology-First Approach</div><div class="text-xs text-stone-500 mt-1">AI, digital twins, and smart platforms in every lifecycle.</div></div></div>
+          <div class="animate-in delay-3 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div>
+            <div><div class="text-sm font-medium text-white">Integrated Multi-BU Delivery</div><div class="text-xs text-stone-500 mt-1">Multiple business units collaborate on every engagement.</div></div>
+          </div>
+          <div class="animate-in delay-4 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div>
+            <div><div class="text-sm font-medium text-white">Global Talent, Local Execution</div><div class="text-xs text-stone-500 mt-1">India-based delivery with on-ground teams worldwide.</div></div>
+          </div>
+          <div class="animate-in delay-5 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-blue-400" data-icon="mdi:check-bold"></span></div>
+            <div><div class="text-sm font-medium text-white">Technology-First Approach</div><div class="text-xs text-stone-500 mt-1">AI, digital twins, and smart platforms in every lifecycle.</div></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INSIGHTS -->
-<section id="insights" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-insights">
+<!-- ==================== INSIGHTS ==================== -->
+<section id="insights" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg section-bg-dark" style="--bg-img:url('https://picsum.photos/seed/sec-insights-bg/1920/1080.jpg')">
+  <div class="absolute top-0 left-0 w-[400px] h-[300px] bg-blue-500/3 rounded-full blur-[100px]"></div>
+  <div class="deco-circle w-[300px] h-[300px] bottom-10 right-[5%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-      <div><div class="animate-in flex items-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Insights</span></div><h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Thought <span class="text-gradient-blue">Leadership</span></h2><p class="animate-in delay-2 text-stone-400 font-light max-w-xl">Research, analysis, and perspectives from our experts.</p></div>
+      <div>
+        <div class="animate-in flex items-center gap-3 mb-6">
+          <div class="w-8 h-px bg-blue-500"></div>
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Insights</span>
+        </div>
+        <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Thought <span class="text-gradient-blue">Leadership</span></h2>
+        <p class="animate-in delay-2 text-stone-400 font-light max-w-xl">Research, analysis, and perspectives from our experts shaping the future of infrastructure, technology, and governance.</p>
+      </div>
       <div class="animate-in delay-2 flex gap-2">
         <button class="insight-tab active-tab px-4 py-2 rounded-lg text-xs font-medium transition-all bg-blue-600 text-white" onclick="filterInsights('all',this)">All</button>
         <button class="insight-tab px-4 py-2 rounded-lg text-xs font-medium transition-all bg-neutral-800 text-stone-400 hover:text-white" onclick="filterInsights('article',this)">Articles</button>
@@ -391,133 +836,486 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f4;overflow-x:
         <button class="insight-tab px-4 py-2 rounded-lg text-xs font-medium transition-all bg-neutral-800 text-stone-400 hover:text-white" onclick="filterInsights('trend',this)">Trends</button>
       </div>
     </div>
+
     <div id="insightsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="animate-in insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="article"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Article</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Urban Development</span><span>•</span><span>5 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">India's Smart City 2.0: From Pilots to Scale</h3><p class="text-xs text-stone-400 font-light leading-relaxed">How next-gen platforms are moving beyond proof-of-concept to metropolitan scale.</p></div></div>
-      <div class="animate-in delay-1 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="whitepaper"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">Whitepaper</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>AI & Technology</span><span>•</span><span>12 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">AI-Native Infrastructure: The New Paradigm</h3><p class="text-xs text-stone-400 font-light leading-relaxed">A framework for embedding AI into infrastructure planning and operations.</p></div></div>
-      <div class="animate-in delay-2 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="trend"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">Trend Report</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>ESG</span><span>•</span><span>8 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">ESG Compliance 2025: What Firms Must Know</h3><p class="text-xs text-stone-400 font-light leading-relaxed">Navigating the evolving ESG regulatory landscape.</p></div></div>
-      <div class="animate-in delay-3 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="article"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1545296664-39db56ad95bd?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Article</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Infrastructure Finance</span><span>•</span><span>6 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Reimagining PPP for the Next Decade</h3><p class="text-xs text-stone-400 font-light leading-relaxed">New PPP structures balancing efficiency with accountability.</p></div></div>
-      <div class="animate-in delay-4 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="whitepaper"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">Whitepaper</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Industrial Systems</span><span>•</span><span>15 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Industrial Digital Twins: From Concept to ROI</h3><p class="text-xs text-stone-400 font-light leading-relaxed">Practical guide to implementing digital twins in industrial sectors.</p></div></div>
-      <div class="animate-in delay-5 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="trend"><div class="h-48 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" alt="" class="w-full h-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div><div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">Trend Report</span></div></div><div class="p-6"><div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Cybersecurity</span><span>•</span><span>7 min</span></div><h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Securing Critical Infrastructure in the AI Era</h3><p class="text-xs text-stone-400 font-light leading-relaxed">Emerging cyber threats and zero-trust frameworks.</p></div></div>
+      <div class="animate-in insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="article">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-smartcity/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Article</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Urban Development</span><span>•</span><span>5 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">India's Smart City 2.0: From Pilots to Scale</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">How next-gen smart city platforms are moving beyond proof-of-concept to deliver transformation at metropolitan scale.</p>
+        </div>
+      </div>
+      <div class="animate-in delay-1 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="whitepaper">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-aiinfra/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">Whitepaper</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>AI & Technology</span><span>•</span><span>12 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">AI-Native Infrastructure: The New Paradigm</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">A comprehensive framework for embedding AI into infrastructure planning, design, and operations.</p>
+        </div>
+      </div>
+      <div class="animate-in delay-2 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="trend">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-esg/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">Trend Report</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>ESG & Sustainability</span><span>•</span><span>8 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">ESG Compliance 2025: What Infrastructure Firms Must Know</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">Navigating the evolving ESG regulatory landscape and building sustainability into core strategy.</p>
+        </div>
+      </div>
+      <div class="animate-in delay-3 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="article">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-ppp/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-blue-600/80 text-white px-2.5 py-1 rounded-full font-medium">Article</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Infrastructure Finance</span><span>•</span><span>6 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Reimagining PPP for the Next Decade</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">New PPP structures balancing private efficiency with public accountability in infrastructure delivery.</p>
+        </div>
+      </div>
+      <div class="animate-in delay-4 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="whitepaper">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-digitaltwin/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-indigo-600/80 text-white px-2.5 py-1 rounded-full font-medium">Whitepaper</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Industrial Systems</span><span>•</span><span>15 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Industrial Digital Twins: From Concept to ROI</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">A practical guide to implementing digital twins in manufacturing, energy, and infrastructure sectors.</p>
+        </div>
+      </div>
+      <div class="animate-in delay-5 insight-card glass rounded-2xl overflow-hidden card-hover group" data-type="trend">
+        <div class="h-48 overflow-hidden relative">
+          <img src="https://picsum.photos/seed/insight-cyber/600/400.jpg" alt="" class="w-full h-full object-cover opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="text-[10px] uppercase tracking-wider bg-green-600/80 text-white px-2.5 py-1 rounded-full font-medium">Trend Report</span></div>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-stone-500 mb-2 flex items-center gap-2"><span>Cybersecurity</span><span>•</span><span>7 min read</span></div>
+          <h3 class="text-base font-semibold text-white mb-2 tracking-tight group-hover:text-blue-300 transition-colors">Securing Critical Infrastructure in the AI Era</h3>
+          <p class="text-xs text-stone-400 font-light leading-relaxed">Emerging cyber threats to national infrastructure and zero-trust frameworks to counter them.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PARTNERSHIPS -->
-<section id="partnerships" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-partners">
+<!-- ==================== PARTNERSHIPS ==================== -->
+<section id="partnerships" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg" style="--bg-img:url('https://picsum.photos/seed/sec-partners-bg/1920/1080.jpg')">
+  <div class="deco-circle w-[200px] h-[200px] top-16 right-[12%]"></div>
+  <div class="deco-line h-36 bottom-0 right-[30%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16"><div class="animate-in flex items-center justify-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Ecosystem</span><div class="w-8 h-px bg-blue-500"></div></div><h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Strategic <span class="text-gradient-blue">Partnerships</span></h2><p class="animate-in delay-2 text-stone-400 font-light max-w-2xl mx-auto">Collaborating with global technology leaders, engineering alliances, and academic institutions.</p></div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="animate-in glass rounded-2xl p-8 card-hover text-center"><div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto"><span class="iconify text-2xl text-blue-400" data-icon="mdi:cloud-outline"></span></div><h3 class="text-sm font-semibold text-white mb-2">Technology Partners</h3><p class="text-xs text-stone-500 font-light leading-relaxed">Cloud platforms, AI/ML frameworks, enterprise software.</p></div>
-      <div class="animate-in delay-1 glass rounded-2xl p-8 card-hover text-center"><div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto"><span class="iconify text-2xl text-blue-400" data-icon="mdi:wrench-outline"></span></div><h3 class="text-sm font-semibold text-white mb-2">Engineering Alliances</h3><p class="text-xs text-stone-500 font-light leading-relaxed">Design partners, EPC collaborators, specialized firms.</p></div>
-      <div class="animate-in delay-2 glass rounded-2xl p-8 card-hover text-center"><div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto"><span class="iconify text-2xl text-blue-400" data-icon="mdi:earth"></span></div><h3 class="text-sm font-semibold text-white mb-2">Global Collaborations</h3><p class="text-xs text-stone-500 font-light leading-relaxed">Multilateral agencies, development banks, networks.</p></div>
-      <div class="animate-in delay-3 glass rounded-2xl p-8 card-hover text-center"><div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto"><span class="iconify text-2xl text-blue-400" data-icon="mdi:school-outline"></span></div><h3 class="text-sm font-semibold text-white mb-2">Academic Partnerships</h3><p class="text-xs text-stone-500 font-light leading-relaxed">Research universities, IITs, knowledge institutions.</p></div>
+    <div class="text-center mb-16">
+      <div class="animate-in flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-blue-500"></div>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Ecosystem</span>
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Strategic <span class="text-gradient-blue">Partnerships</span></h2>
+      <p class="animate-in delay-2 text-stone-400 font-light max-w-2xl mx-auto">Collaborating with global technology leaders, engineering alliances, and academic institutions.</p>
     </div>
-    <div class="mt-16 overflow-hidden"><div class="flex items-center gap-12 marquee whitespace-nowrap"><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Technology Partner</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Cloud Alliance</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Engineering Consortium</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">AI Platform Partner</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">University Research</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Development Bank</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">IoT Ecosystem</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Technology Partner</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Cloud Alliance</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Engineering Consortium</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">AI Platform Partner</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">University Research</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Development Bank</span><span class="text-neutral-700">•</span><span class="text-stone-600 text-sm font-medium tracking-wider uppercase">IoT Ecosystem</span><span class="text-neutral-700">•</span></div></div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="animate-in glass rounded-2xl p-8 card-hover text-center">
+        <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:cloud-outline"></span>
+        </div>
+        <h3 class="text-sm font-semibold text-white mb-2">Technology Partners</h3>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">Cloud platforms, AI/ML frameworks, and enterprise software ecosystems.</p>
+      </div>
+      <div class="animate-in delay-1 glass rounded-2xl p-8 card-hover text-center">
+        <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:wrench-outline"></span>
+        </div>
+        <h3 class="text-sm font-semibold text-white mb-2">Engineering Alliances</h3>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">Design partners, EPC collaborators, and specialized engineering firms.</p>
+      </div>
+      <div class="animate-in delay-2 glass rounded-2xl p-8 card-hover text-center">
+        <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:earth"></span>
+        </div>
+        <h3 class="text-sm font-semibold text-white mb-2">Global Collaborations</h3>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">Multilateral agencies, development banks, and international networks.</p>
+      </div>
+      <div class="animate-in delay-3 glass rounded-2xl p-8 card-hover text-center">
+        <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 mx-auto">
+          <span class="iconify text-2xl text-blue-400" data-icon="mdi:school-outline"></span>
+        </div>
+        <h3 class="text-sm font-semibold text-white mb-2">Academic Partnerships</h3>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">Research universities, IITs, and knowledge institutions for R&D.</p>
+      </div>
+    </div>
+    <div class="mt-16 overflow-hidden">
+      <div class="flex items-center gap-12 marquee whitespace-nowrap">
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Technology Partner</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Cloud Alliance</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Engineering Consortium</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">AI Platform Partner</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">University Research</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Development Bank</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">IoT Ecosystem</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Technology Partner</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Cloud Alliance</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Engineering Consortium</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">AI Platform Partner</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">University Research</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">Development Bank</span><span class="text-neutral-700">•</span>
+        <span class="text-stone-600 text-sm font-medium tracking-wider uppercase">IoT Ecosystem</span><span class="text-neutral-700">•</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CAREERS -->
-<section id="careers" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-careers">
+<!-- ==================== CAREERS ==================== -->
+<section id="careers" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg section-bg-dark" style="--bg-img:url('https://picsum.photos/seed/sec-careers-bg/1920/1080.jpg')">
+  <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-blue-500/3 rounded-full blur-[120px] -translate-y-1/2"></div>
+  <div class="deco-circle w-[250px] h-[250px] top-10 left-[5%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-start">
       <div>
-        <div class="animate-in flex items-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Careers</span></div>
-        <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">Build the Future<br><span class="text-gradient-blue">With Us</span></h2>
-        <p class="animate-in delay-2 text-stone-400 font-light leading-relaxed mb-8">Join a team shaping the world's infrastructure, digital economy, and urban future.</p>
-        <div class="animate-in delay-3 grid grid-cols-2 gap-4 mb-8">
-          <div class="glass rounded-xl p-5"><span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:rocket-launch-outline"></span><div class="text-sm font-medium text-white mb-1">Innovation Culture</div><div class="text-xs text-stone-500">R&D labs, hackathons</div></div>
-          <div class="glass rounded-xl p-5"><span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:chart-timeline-variant-shimmer"></span><div class="text-sm font-medium text-white mb-1">Rapid Growth</div><div class="text-xs text-stone-500">Fast-track paths</div></div>
-          <div class="glass rounded-xl p-5"><span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:earth"></span><div class="text-sm font-medium text-white mb-1">Global Exposure</div><div class="text-xs text-stone-500">International projects</div></div>
-          <div class="glass rounded-xl p-5"><span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:school-outline"></span><div class="text-sm font-medium text-white mb-1">Continuous Learning</div><div class="text-xs text-stone-500">Certifications, mentorship</div></div>
+        <div class="animate-in flex items-center gap-3 mb-6">
+          <div class="w-8 h-px bg-blue-500"></div>
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Careers</span>
         </div>
-        <div class="animate-in delay-4 rounded-xl overflow-hidden border border-neutral-800 aspect-[16/7]"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=300&fit=crop" alt="Culture" class="w-full h-full object-cover opacity-35"></div>
+        <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">Build the Future<br><span class="text-gradient-blue">With Us</span></h2>
+        <p class="animate-in delay-2 text-stone-400 font-light leading-relaxed mb-8">Join a team shaping the world's infrastructure, digital economy, and urban future. Work on nation-scale projects with global impact.</p>
+        <div class="animate-in delay-3 grid grid-cols-2 gap-4 mb-8">
+          <div class="glass rounded-xl p-5">
+            <span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:rocket-launch-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Innovation Culture</div>
+            <div class="text-xs text-stone-500">R&D labs, hackathons, incubation</div>
+          </div>
+          <div class="glass rounded-xl p-5">
+            <span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:chart-timeline-variant-shimmer"></span>
+            <div class="text-sm font-medium text-white mb-1">Rapid Growth</div>
+            <div class="text-xs text-stone-500">Fast-track career paths</div>
+          </div>
+          <div class="glass rounded-xl p-5">
+            <span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:earth"></span>
+            <div class="text-sm font-medium text-white mb-1">Global Exposure</div>
+            <div class="text-xs text-stone-500">International engagements</div>
+          </div>
+          <div class="glass rounded-xl p-5">
+            <span class="iconify text-xl text-blue-400 mb-2 block" data-icon="mdi:school-outline"></span>
+            <div class="text-sm font-medium text-white mb-1">Continuous Learning</div>
+            <div class="text-xs text-stone-500">Certifications, mentorship</div>
+          </div>
+        </div>
+        <div class="animate-in delay-4 rounded-xl overflow-hidden border border-neutral-800 aspect-[16/7]">
+          <img src="https://picsum.photos/seed/careers-culture/700/300.jpg" alt="ADITATTVA Culture" class="w-full h-full object-cover opacity-35">
+        </div>
       </div>
       <div class="animate-in delay-2 space-y-4">
-        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Senior Consultant — Smart Cities')"><div class="flex items-center justify-between mb-2"><span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Strategy & Consulting</span><span class="text-[10px] text-stone-500">Ranchi / Remote</span></div><h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Senior Consultant — Smart Cities</h4><p class="text-xs text-stone-500">8+ years in urban planning, smart city advisory.</p></div>
-        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Lead AI/ML Engineer')"><div class="flex items-center justify-between mb-2"><span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Digital & Technology</span><span class="text-[10px] text-stone-500">Hybrid</span></div><h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Lead AI/ML Engineer</h4><p class="text-xs text-stone-500">6+ years building production ML systems, MLOps.</p></div>
-        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Structural Design Engineer')"><div class="flex items-center justify-between mb-2"><span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Engineering & Infrastructure</span><span class="text-[10px] text-stone-500">Ranchi</span></div><h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Structural Design Engineer</h4><p class="text-xs text-stone-500">5+ years in structural analysis and design.</p></div>
-        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('ESG Analyst')"><div class="flex items-center justify-between mb-2"><span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Strategy & Consulting</span><span class="text-[10px] text-stone-500">Remote</span></div><h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">ESG Analyst</h4><p class="text-xs text-stone-500">3+ years in ESG reporting, climate risk.</p></div>
-        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Graduate Engineer Program')"><div class="flex items-center justify-between mb-2"><span class="text-[10px] uppercase tracking-wider text-green-400 font-medium">Graduate Program</span><span class="text-[10px] text-stone-500">Ranchi</span></div><h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Graduate Engineer Program — 2025</h4><p class="text-xs text-stone-500">Fresh graduates. 18-month rotational program.</p></div>
+        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Senior Consultant — Smart Cities')">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Strategy & Consulting</span>
+            <span class="text-[10px] text-stone-500">Ranchi / Remote</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Senior Consultant — Smart Cities</h4>
+          <p class="text-xs text-stone-500">8+ years in urban planning, smart city advisory, and government consulting.</p>
+        </div>
+        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Lead AI/ML Engineer')">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Digital & Technology</span>
+            <span class="text-[10px] text-stone-500">Hybrid</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Lead AI/ML Engineer</h4>
+          <p class="text-xs text-stone-500">6+ years building production ML systems, NLP, computer vision, and MLOps.</p>
+        </div>
+        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Structural Design Engineer')">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Engineering & Infrastructure</span>
+            <span class="text-[10px] text-stone-500">Ranchi</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Structural Design Engineer</h4>
+          <p class="text-xs text-stone-500">5+ years in structural analysis and design for bridges, buildings, industrial structures.</p>
+        </div>
+        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('ESG Analyst')">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] uppercase tracking-wider text-blue-400 font-medium">Strategy & Consulting</span>
+            <span class="text-[10px] text-stone-500">Remote</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">ESG Analyst</h4>
+          <p class="text-xs text-stone-500">3+ years in ESG reporting, sustainability frameworks, climate risk assessment.</p>
+        </div>
+        <div class="glass rounded-xl p-5 card-hover cursor-pointer group" onclick="openRoleModal('Graduate Engineer Program')">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] uppercase tracking-wider text-green-400 font-medium">Graduate Program</span>
+            <span class="text-[10px] text-stone-500">Ranchi</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">Graduate Engineer Program — 2025</h4>
+          <p class="text-xs text-stone-500">Fresh graduates from engineering, planning, technology. 18-month rotational program.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-20 relative border-t border-neutral-800/50 overflow-hidden"><div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-indigo-600/5"></div><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/5 rounded-full blur-[100px]"></div><div class="max-w-4xl mx-auto px-6 text-center relative z-10"><div class="animate-in"><span class="iconify text-5xl text-blue-400/30 mb-6 block mx-auto" data-icon="mdi:handshake-outline"></span></div><h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Start a Project With <span class="text-gradient-blue">ADITATTVA</span></h2><p class="animate-in delay-2 text-stone-400 font-light max-w-xl mx-auto mb-8">Whether you're a government agency or an enterprise — we're ready.</p><div class="animate-in delay-3 flex flex-col sm:flex-row items-center justify-center gap-4"><a href="#contact" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2">Get in Touch <span class="iconify" data-icon="mdi:arrow-right"></span></a><a href="mailto:info@aditattva.com" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2"><span class="iconify" data-icon="mdi:email-outline"></span> info@aditattva.com</a></div></div></section>
+<!-- ==================== CTA BANNER ==================== -->
+<section class="py-20 relative border-t border-neutral-800/50 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-indigo-600/5"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/5 rounded-full blur-[100px]"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+    <div class="animate-in"><span class="iconify text-5xl text-blue-400/30 mb-6 block mx-auto" data-icon="mdi:handshake-outline"></span></div>
+    <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Start a Project With <span class="text-gradient-blue">ADITATTVA</span></h2>
+    <p class="animate-in delay-2 text-stone-400 font-light max-w-xl mx-auto mb-8">Whether you're a government agency planning national infrastructure or an enterprise driving digital transformation — we're ready.</p>
+    <div class="animate-in delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#contact" class="btn-primary bg-blue-600 hover:bg-blue-500 text-white font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2">Get in Touch <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+      <a href="mailto:info@aditattva.com" class="btn-secondary border border-neutral-700 text-stone-200 font-medium px-8 py-3.5 rounded-xl text-sm flex items-center gap-2"><span class="iconify" data-icon="mdi:email-outline"></span> info@aditattva.com</a>
+    </div>
+  </div>
+</section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 md:py-32 relative border-t border-neutral-800/50 sec-contact">
+<!-- ==================== CONTACT ==================== -->
+<section id="contact" class="py-24 md:py-32 relative border-t border-neutral-800/50 section-bg" style="--bg-img:url('https://picsum.photos/seed/sec-contact-bg/1920/1080.jpg')">
+  <div class="deco-circle w-[200px] h-[200px] -top-16 right-[20%]"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16"><div class="animate-in flex items-center justify-center gap-3 mb-6"><div class="w-8 h-px bg-blue-500"></div><span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Contact</span><div class="w-8 h-px bg-blue-500"></div></div><h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Let's <span class="text-gradient-blue">Connect</span></h2><p class="animate-in delay-2 text-stone-400 font-light max-w-xl mx-auto">Reach out to discuss your next project or explore partnerships.</p></div>
+    <div class="text-center mb-16">
+      <div class="animate-in flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-blue-500"></div>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">Contact</span>
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="animate-in delay-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Let's <span class="text-gradient-blue">Connect</span></h2>
+      <p class="animate-in delay-2 text-stone-400 font-light max-w-xl mx-auto">Reach out to discuss your next project, explore partnerships, or learn more about our capabilities.</p>
+    </div>
     <div class="grid lg:grid-cols-5 gap-8">
       <div class="lg:col-span-2 space-y-6">
-        <div class="animate-in glass rounded-2xl p-6 card-hover"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:map-marker-outline"></span></div><div><div class="text-sm font-medium text-white mb-1">Headquarters</div><div class="text-xs text-stone-400 leading-relaxed">Ratu Road, Ranchi,<br>Jharkhand – 834001, India</div></div></div></div>
-        <div class="animate-in delay-1 glass rounded-2xl p-6 card-hover"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:earth"></span></div><div><div class="text-sm font-medium text-white mb-1">Global Presence</div><div class="text-xs text-stone-400">India (HQ) | Serving Clients Worldwide</div></div></div></div>
-        <div class="animate-in delay-2 glass rounded-2xl p-6 card-hover"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:phone-outline"></span></div><div><div class="text-sm font-medium text-white mb-1">Phone</div><a href="tel:+919288363351" class="text-xs text-stone-400 hover:text-blue-400 transition-colors">+91 92883-63351</a></div></div></div>
-        <div class="animate-in delay-3 glass rounded-2xl p-6 card-hover"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:email-outline"></span></div><div><div class="text-sm font-medium text-white mb-1">Email</div><a href="mailto:info@aditattva.com" class="text-xs text-stone-400 hover:text-blue-400 transition-colors">info@aditattva.com</a></div></div></div>
+        <div class="animate-in glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:map-marker-outline"></span></div>
+            <div><div class="text-sm font-medium text-white mb-1">Headquarters</div><div class="text-xs text-stone-400 leading-relaxed">Ratu Road, Ranchi,<br>Jharkhand – 834001, India</div></div>
+          </div>
+        </div>
+        <div class="animate-in delay-1 glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:earth"></span></div>
+            <div><div class="text-sm font-medium text-white mb-1">Global Presence</div><div class="text-xs text-stone-400">India (HQ) | Serving Clients Worldwide</div></div>
+          </div>
+        </div>
+        <div class="animate-in delay-2 glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:phone-outline"></span></div>
+            <div><div class="text-sm font-medium text-white mb-1">Phone</div><a href="tel:+919288363351" class="text-xs text-stone-400 hover:text-blue-400 transition-colors">+91 92883-63351</a></div>
+          </div>
+        </div>
+        <div class="animate-in delay-3 glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><span class="iconify text-lg text-blue-400" data-icon="mdi:email-outline"></span></div>
+            <div><div class="text-sm font-medium text-white mb-1">Email</div><a href="mailto:info@aditattva.com" class="text-xs text-stone-400 hover:text-blue-400 transition-colors">info@aditattva.com</a></div>
+          </div>
+        </div>
       </div>
       <div class="lg:col-span-3">
         <form id="contactForm" class="animate-in delay-2 glass rounded-2xl p-8" onsubmit="handleContactSubmit(event)">
-          <div class="grid sm:grid-cols-2 gap-5 mb-5"><div><label class="block text-xs text-stone-400 font-medium mb-2">Full Name *</label><input type="text" required class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="Your name"></div><div><label class="block text-xs text-stone-400 font-medium mb-2">Email *</label><input type="email" required class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="you@company.com"></div></div>
-          <div class="grid sm:grid-cols-2 gap-5 mb-5"><div><label class="block text-xs text-stone-400 font-medium mb-2">Organization</label><input type="text" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="Company name"></div><div><label class="block text-xs text-stone-400 font-medium mb-2">Phone</label><input type="tel" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="+91 XXXXX-XXXXX"></div></div>
-          <div class="mb-5"><label class="block text-xs text-stone-400 font-medium mb-2">Service Interest</label><select class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-stone-400 focus:outline-none focus:border-blue-500/50 transition-colors appearance-none cursor-pointer"><option value="">Select a service</option><option>Strategy & Consulting</option><option>Engineering & Infrastructure</option><option>Digital & Technology</option><option>Industrial & Advanced Systems</option><option>Innovation & R&D</option><option>Urban & Social Development</option><option>Multiple Services</option></select></div>
-          <div class="mb-6"><label class="block text-xs text-stone-400 font-medium mb-2">Message *</label><textarea required rows="4" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors resize-none" placeholder="Tell us about your project..."></textarea></div>
-          <button type="submit" class="btn-primary w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl text-sm flex items-center justify-center gap-2"><span id="submitText">Submit Inquiry</span><span id="submitLoader" class="hidden"><span class="iconify animate-spin" data-icon="mdi:loading"></span></span><span class="iconify" data-icon="mdi:send" id="submitIcon"></span></button>
-          <p class="text-[10px] text-stone-600 mt-3 text-center">By submitting, you agree to our privacy policy.</p>
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <div><label class="block text-xs text-stone-400 font-medium mb-2">Full Name *</label><input type="text" required class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="Your name"></div>
+            <div><label class="block text-xs text-stone-400 font-medium mb-2">Email *</label><input type="email" required class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="you@company.com"></div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <div><label class="block text-xs text-stone-400 font-medium mb-2">Organization</label><input type="text" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="Company name"></div>
+            <div><label class="block text-xs text-stone-400 font-medium mb-2">Phone</label><input type="tel" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="+91 XXXXX-XXXXX"></div>
+          </div>
+          <div class="mb-5">
+            <label class="block text-xs text-stone-400 font-medium mb-2">Service Interest</label>
+            <select class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-stone-400 focus:outline-none focus:border-blue-500/50 transition-colors appearance-none cursor-pointer">
+              <option value="">Select a service</option>
+              <option>Strategy & Consulting</option>
+              <option>Engineering & Infrastructure</option>
+              <option>Digital & Technology</option>
+              <option>Industrial & Advanced Systems</option>
+              <option>Innovation & R&D</option>
+              <option>Urban & Social Development</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-xs text-stone-400 font-medium mb-2">Message *</label>
+            <textarea required rows="4" class="w-full bg-neutral-900/50 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-blue-500/50 transition-colors resize-none" placeholder="Tell us about your project or inquiry..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl text-sm flex items-center justify-center gap-2">
+            <span id="submitText">Submit Inquiry</span>
+            <span id="submitLoader" class="hidden"><span class="iconify animate-spin" data-icon="mdi:loading"></span></span>
+            <span class="iconify" data-icon="mdi:send" id="submitIcon"></span>
+          </button>
+          <p class="text-[10px] text-stone-600 mt-3 text-center">By submitting, you agree to our privacy policy. We'll respond within 24 hours.</p>
         </form>
       </div>
     </div>
-    <div class="animate-in mt-12 rounded-2xl overflow-hidden border border-neutral-800 h-64"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.5!2d85.3!3d23.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzAwLjAiTiA4NcKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;filter:invert(0.9) hue-rotate(180deg) brightness(0.7) contrast(1.1);" allowfullscreen="" loading="lazy"></iframe></div>
+    <div class="animate-in mt-12 rounded-2xl overflow-hidden border border-neutral-800 h-64">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.5!2d85.3!3d23.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzAwLjAiTiA4NcKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;filter:invert(0.9) hue-rotate(180deg) brightness(0.7) contrast(1.1);" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="border-t border-neutral-800/50 bg-neutral-950/50">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
-      <div class="col-span-2 md:col-span-4 lg:col-span-1"><a href="#home" class="flex items-center gap-3 mb-5"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center"><span class="iconify text-white text-sm" data-icon="mdi:hexagon-multiple"></span></div><span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span></a><p class="text-xs text-stone-500 font-light leading-relaxed mb-5">Engineering Intelligence. Enabling Transformation.</p><div class="flex gap-3"><a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:linkedin"></span></a><a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:twitter"></span></a><a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:youtube"></span></a></div></div>
-      <div><h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Services</h4><ul class="space-y-2.5"><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Strategy & Consulting</a></li><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Engineering & Infra</a></li><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Digital & Technology</a></li><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Industrial Systems</a></li><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Innovation & R&D</a></li><li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Urban & Social Dev</a></li></ul></div>
-      <div><h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Industries</h4><ul class="space-y-2.5"><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Infrastructure</a></li><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Energy & Utilities</a></li><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Government</a></li><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Healthcare</a></li><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Manufacturing</a></li><li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Defense</a></li></ul></div>
-      <div><h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Company</h4><ul class="space-y-2.5"><li><a href="#about" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">About Us</a></li><li><a href="#insights" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Insights</a></li><li><a href="#partnerships" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Partnerships</a></li><li><a href="#careers" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Careers</a></li><li><a href="#contact" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Contact</a></li></ul></div>
-      <div><h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Legal</h4><ul class="space-y-2.5"><li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Privacy Policy</a></li><li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Terms of Service</a></li><li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Cookie Policy</a></li><li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">ESG & Governance</a></li></ul></div>
+      <div class="col-span-2 md:col-span-4 lg:col-span-1">
+        <a href="#home" class="flex items-center gap-3 mb-5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center"><span class="iconify text-white text-sm" data-icon="mdi:hexagon-multiple"></span></div>
+          <span class="text-xl font-bold tracking-tight text-white">ADITATTVA</span>
+        </a>
+        <p class="text-xs text-stone-500 font-light leading-relaxed mb-5">Engineering Intelligence. Enabling Transformation. Global Consulting, Engineering & Technology Solutions.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:linkedin"></span></a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:twitter"></span></a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center text-stone-500 hover:text-blue-400 hover:bg-neutral-700 transition-all"><span class="iconify text-sm" data-icon="mdi:youtube"></span></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Services</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Strategy & Consulting</a></li>
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Engineering & Infra</a></li>
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Digital & Technology</a></li>
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Industrial Systems</a></li>
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Innovation & R&D</a></li>
+          <li><a href="#services" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Urban & Social Dev</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Industries</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Infrastructure</a></li>
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Energy & Utilities</a></li>
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Government</a></li>
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Healthcare</a></li>
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Manufacturing</a></li>
+          <li><a href="#industries" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Defense</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Company</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#about" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">About Us</a></li>
+          <li><a href="#insights" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Insights</a></li>
+          <li><a href="#partnerships" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Partnerships</a></li>
+          <li><a href="#careers" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Careers</a></li>
+          <li><a href="#contact" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Contact</a></li>
+          <li><a href="#" onclick="openProfileModal();return false;" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Company Profile</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-4">Legal</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Terms of Service</a></li>
+          <li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">Cookie Policy</a></li>
+          <li><a href="#" class="text-xs text-stone-500 hover:text-stone-200 transition-colors">ESG & Governance</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="mt-14 pt-8 border-t border-neutral-800/50 flex flex-col md:flex-row items-center justify-between gap-4"><div class="text-xs text-stone-600">© 2025 ADITATTVA. All rights reserved.</div><div class="text-xs text-stone-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> India HQ — Serving Clients Worldwide</div></div>
+    <div class="mt-14 pt-8 border-t border-neutral-800/50 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-stone-600">© 2025 ADITATTVA. All rights reserved.</div>
+      <div class="text-xs text-stone-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> India HQ — Serving Clients Worldwide</div>
+    </div>
   </div>
 </footer>
 
+<!-- ==================== JAVASCRIPT ==================== -->
 <script>
-const industryData=[
-  {name:'Infrastructure & Transportation',icon:'mdi:road-variant',img:'https://images.unsplash.com/photo-1545296664-39db56ad95bd?w=800&h=400&fit=crop',tagline:'Connecting Nations, Building Futures',desc:'We deliver end-to-end engineering and advisory services for the world\'s most ambitious infrastructure programs — from national highways and high-speed rail to metro systems and port developments.',subsectors:['Highways & Expressways','Railway Systems & Metro','Ports & Maritime','Airports & Aviation','Bridges & Tunnels','Urban Roads & Interchanges'],capabilities:['Feasibility Studies & DPR','Design Engineering (Civil/Structural/MEP)','Project Management Consultancy','Construction Supervision & QA/QC','Technical Due Diligence','Traffic & Transportation Studies'],stats:[{label:'Projects Advised',value:'200+'},{label:'KM of Roads',value:'15,000+'},{label:'Metro Lines',value:'12+'}]},
-  {name:'Energy & Utilities',icon:'mdi:lightning-bolt-outline',img:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=400&fit=crop',tagline:'Powering Progress, Sustaining Growth',desc:'Comprehensive solutions across the energy value chain — from conventional power and transmission to renewable energy, smart grids, and water infrastructure for a sustainable energy future.',subsectors:['Thermal & Nuclear Power','Solar & Wind Energy','Transmission & Distribution','Smart Grids & Metering','Water Supply & Treatment','Oil & Gas Infrastructure'],capabilities:['Power System Planning','Renewable Energy Advisory','Grid Modernization','Water Resource Engineering','ESG Compliance for Energy','Tariff & Regulatory Advisory'],stats:[{label:'MW Capacity',value:'10,000+'},{label:'Renewable Projects',value:'50+'},{label:'Water Schemes',value:'30+'}]},
-  {name:'Government & Public Sector',icon:'mdi:account-tie-outline',img:'https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=800&h=400&fit=crop',tagline:'Enabling Governance, Delivering Impact',desc:'We partner with central, state, and local government bodies to design and implement transformative programs — from policy formulation and institutional reform to digital governance and public service delivery.',subsectors:['Central Government Programs','State Government Advisory','Urban Local Bodies','E-Governance Platforms','Public Financial Management','Institutional Capacity Building'],capabilities:['Policy Design & Advisory','Program Implementation Support','Digital Governance Platforms','Performance Monitoring & Evaluation','Fiscal Advisory','Citizen Service Delivery'],stats:[{label:'Government Clients',value:'25+'},{label:'Programs Supported',value:'40+'},{label:'States Covered',value:'15+'}]},
-  {name:'Healthcare',icon:'mdi:hospital-box-outline',img:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=400&fit=crop',tagline:'Engineering Healthier Communities',desc:'From hospital design and healthcare infrastructure to public health systems and digital health platforms — we build the physical and digital backbone for accessible, quality healthcare delivery.',subsectors:['Hospital Design & Engineering','Public Health Infrastructure','Digital Health Platforms','Pharmaceutical Facilities','Medical Equipment Planning','Health Supply Chain'],capabilities:['Hospital Architecture & MEP','Health Technology Assessment','Telemedicine Platforms','Health Information Systems','Cold Chain Infrastructure','Infection Control Engineering'],stats:[{label:'Beds Planned',value:'20,000+'},{label:'Facilities',value:'100+'},{label:'Digital Health',value:'15+'}]},
-  {name:'Telecom & Digital Infrastructure',icon:'mdi:cellphone-link',img:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop',tagline:'Building the Digital Backbone',desc:'We engineer the infrastructure that powers the digital economy — from 5G networks and fiber deployments to data centers and IoT platforms enabling connected ecosystems.',subsectors:['5G Network Planning','Fiber & Broadband','Data Centers','Tower Infrastructure','IoT & Sensor Networks','Satellite Communication'],capabilities:['Network Design & Planning','Site Acquisition & Engineering','Data Center Design (Tier III/IV)','Fiber Route Surveys','Tower Structural Design','RF Engineering & Optimization'],stats:[{label:'Tower Sites',value:'5,000+'},{label:'Fiber KM',value:'25,000+'},{label:'Data Centers',value:'10+'}]},
-  {name:'Manufacturing',icon:'mdi:cog-outline',img:'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=400&fit=crop',tagline:'Intelligent Manufacturing at Scale',desc:'We help manufacturers transition to Industry 4.0 — from smart factory design and automation to digital twin implementation and operational analytics for competitive, sustainable production.',subsectors:['Automotive & EV','FMCG & Consumer Goods','Electronics & Semiconductors','Textiles & Apparels','Pharmaceutical Manufacturing','Food Processing'],capabilities:['Smart Factory Design','Industrial Automation','Digital Twin Implementation','MES & SCADA Systems','Quality Management Systems','Supply Chain Optimization'],stats:[{label:'Factory Projects',value:'30+'},{label:'Automation Lines',value:'100+'},{label:'Digital Twins',value:'20+'}]},
-  {name:'Mining & Resources',icon:'mdi:pickaxe',img:'https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=800&h=400&fit=crop',tagline:'Responsible Resource Extraction',desc:'From mine planning and mineral processing to environmental compliance and automation — we deliver engineering solutions that maximize resource value while minimizing environmental impact.',subsectors:['Coal Mining','Iron Ore & Steel','Non-Ferrous Metals','Mineral Processing','Mine Safety Systems','Mine Closure & Rehabilitation'],capabilities:['Mine Planning & Design','Mineral Processing Engineering','Blasting & Geotechnical Engineering','Mining Automation','Environmental Impact Assessment','Rehabilitation Planning'],stats:[{label:'Mines Advised',value:'25+'},{label:'MT Capacity',value:'50+'},{label:'Safety Systems',value:'15+'}]},
-  {name:'Education & Social Sector',icon:'mdi:school-outline',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=400&fit=crop',tagline:'Investing in Human Capital',desc:'We design and implement programs that build human capital at scale — from school infrastructure and skill development to edu-tech platforms and social impact measurement.',subsectors:['School Infrastructure','Higher Education','Skill Development & Vocational','Edu-Tech Platforms','Rural Development','Social Impact Programs'],capabilities:['Institutional Planning & Design','Skill Gap Analysis','Edu-Tech Platform Development','Monitoring & Evaluation','Social Return on Investment','Community Engagement Frameworks'],stats:[{label:'Schools Built',value:'500+'},{label:'Skilling Centers',value:'50+'},{label:'Beneficiaries',value:'1M+'}]},
-  {name:'Defense & Aerospace',icon:'mdi:shield-airplane-outline',img:'https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=800&h=400&fit=crop',tagline:'Securing National Interests',desc:'We support India\'s defense modernization with specialized engineering, R&D, and technology solutions — from strategic infrastructure and simulation systems to cybersecurity and logistics optimization.',subsectors:['Strategic Infrastructure','Aerospace Systems','Naval & Maritime Defense','Land Systems & Vehicles','Cyber Defense','Defense Logistics'],capabilities:['Defense Infrastructure Design','Simulation & Training Systems','C4ISR Integration','Cybersecurity Assessment','Supply Chain Management','R&D Collaboration'],stats:[{label:'Defense Projects',value:'10+'},{label:'R&D Programs',value:'8+'},{label:'Installations',value:'5+'}]}
-];
+// ===== Hero Slider =====
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.hero-dot');
+const counterEl=document.getElementById('slideCounterNum');
+let currentSlide=0;
+let slideInterval;
 
-const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot'),counterEl=document.getElementById('slideCounterNum');
-let currentSlide=0,slideInterval;
-function goToSlide(n){slides[currentSlide].classList.remove('active');dots[currentSlide].classList.remove('active');currentSlide=(n+slides.length)%slides.length;slides[currentSlide].classList.add('active');dots[currentSlide].classList.add('active');counterEl.textContent=String(currentSlide+1).padStart(2,'0')}
-function nextSlide(){goToSlide(currentSlide+1)}function prevSlide(){goToSlide(currentSlide-1)}
-function startAuto(){slideInterval=setInterval(nextSlide,6000)}function resetAuto(){clearInterval(slideInterval);startAuto()}
+function goToSlide(n){
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide=(n+slides.length)%slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  counterEl.textContent=String(currentSlide+1).padStart(2,'0');
+}
+function nextSlide(){goToSlide(currentSlide+1)}
+function prevSlide(){goToSlide(currentSlide-1)}
+function startAuto(){slideInterval=setInterval(nextSlide,6000)}
+function resetAuto(){clearInterval(slideInterval);startAuto()}
+
 document.getElementById('heroNext').addEventListener('click',()=>{nextSlide();resetAuto()});
 document.getElementById('heroPrev').addEventListener('click',()=>{prevSlide();resetAuto()});
 dots.forEach(d=>d.addEventListener('click',()=>{goToSlide(parseInt(d.dataset.goto));resetAuto()}));
-let touchStartX=0;document.getElementById('home').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
-document.getElementById('home').addEventListener('touchend',e=>{const d=touchStartX-e.changedTouches[0].screenX;if(Math.abs(d)>50){d>0?nextSlide():prevSlide();resetAuto()}},{passive:true});startAuto();
 
-window.addEventListener('scroll',()=>{const n=document.getElementById('navbar');if(window.pageYOffset>80){n.classList.add('glass-strong');n.style.borderBottom='1px solid rgba(255,255,255,0.05)'}else{n.classList.remove('glass-strong');n.style.borderBottom='none'}});
+// Touch/swipe support
+let touchStartX=0;
+const heroEl=document.getElementById('home');
+heroEl.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+heroEl.addEventListener('touchend',e=>{const diff=touchStartX-e.changedTouches[0].screenX;if(Math.abs(diff)>50){diff>0?nextSlide():prevSlide();resetAuto()}},{passive:true});
+
+startAuto();
+
+// ===== Navbar =====
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.pageYOffset>80){navbar.classList.add('glass-strong');navbar.style.borderBottom='1px solid rgba(255,255,255,0.05)'}
+  else{navbar.classList.remove('glass-strong');navbar.style.borderBottom='none'}
+});
+
+// ===== Mobile Menu =====
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':''}
-const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.animate-in').forEach(el=>obs.observe(el));
-const cObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){const el=en.target,t=parseInt(el.dataset.target),s=el.dataset.suffix||'';let c=0;const step=Math.max(1,Math.floor(t/40));const iv=setInterval(()=>{c+=step;if(c>=t){c=t;clearInterval(iv)}el.textContent=c+s},30);cObs.unobserve(el)}})},{threshold:.5});document.querySelectorAll('.stat-number').forEach(el=>cObs.observe(el));
+
+// ===== Scroll Animations =====
+const observer=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.animate-in').forEach(el=>observer.observe(el));
+
+// ===== Counter =====
+const cObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){const el=en.target;const t=parseInt(el.dataset.target);const s=el.dataset.suffix||'';let c=0;const step=Math.max(1,Math.floor(t/40));const iv=setInterval(()=>{c+=step;if(c>=t){c=t;clearInterval(iv)}el.textContent=c+s},30);cObs.unobserve(el)}})},{threshold:.5});
+document.querySelectorAll('.stat-number').forEach(el=>cObs.observe(el));
+
+// ===== Toast =====
 function showToast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
-function openModal(h,wide){const m=document.getElementById('modal'),mi=document.getElementById('modalInner');if(wide){mi.style.maxWidth='800px'}else{mi.style.maxWidth='32rem'}document.getElementById('modalBody').innerHTML=h;m.classList.add('active');document.body.style.overflow='hidden'}
+
+// ===== Modal =====
+function openModal(h){document.getElementById('modalBody').innerHTML=h;document.getElementById('modal').classList.add('active');document.body.style.overflow='hidden'}
 function closeModal(){document.getElementById('modal').classList.remove('active');document.body.style.overflow=''}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal()});
-function openIndustryModal(i){const d=industryData[i];openModal(`<div class="rounded-xl overflow-hidden border border-neutral-800 aspect-[2/1] mb-6 relative"><img src="${d.img}" alt="${d.name}" class="w-full h-full object-cover opacity-50"><div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent"></div><div class="absolute bottom-4 left-5 right-5"><div class="flex items-center gap-3 mb-2"><span class="iconify text-2xl text-blue-400" data-icon="${d.icon}"></span><span class="text-xs uppercase tracking-wider text-blue-300 font-medium">${d.tagline}</span></div><h3 class="text-xl font-bold text-white">${d.name}</h3></div></div><p class="text-sm text-stone-400 font-light leading-relaxed mb-6">${d.desc}</p><div class="grid grid-cols-3 gap-3 mb-6">${d.stats.map(s=>`<div class="glass rounded-lg p-3 text-center"><div class="text-lg font-bold text-white">${s.value}</div><div class="text-[10px] text-stone-500 uppercase tracking-wider">${s.label}</div></div>`).join('')}</div><div class="grid sm:grid-cols-2 gap-5 mb-6"><div><div class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-3">Sub-Sectors</div><ul class="space-y-2">${d.subsectors.map(s=>`<li class="flex items-start gap-2"><span class="iconify text-blue-400 mt-0.5 flex-shrink-0 text-sm" data-icon="mdi:chevron-right"></span><span class="text-xs text-stone-400">${s}</span></li>`).join('')}</ul></div><div><div class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-3">Our Capabilities</div><ul class="space-y-2">${d.capabilities.map(c=>`<li class="flex items-start gap-2"><span class="iconify text-blue-400 mt-0.5 flex-shrink-0 text-sm" data-icon="mdi:check"></span><span class="text-xs text-stone-400">${c}</span></li>`).join('')}</ul></div></div><a href="#contact" onclick="closeModal()" class="btn-primary block text-center bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl text-sm">Discuss ${d.name.split('&')[0].trim()} Projects</a>`,true)}
-function openProfileModal(){openModal(`<div class="text-center"><div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mx-auto mb-5"><span class="iconify text-3xl text-blue-400" data-icon="mdi:file-document-outline"></span></div><h3 class="text-xl font-semibold text-white mb-2">Download Company Profile</h3><p class="text-sm text-stone-400 font-light mb-6">Get the complete ADITATTVA corporate profile.</p><button onclick="handleDownload()" class="btn-primary w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl text-sm flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:download"></span> Download PDF</button><p class="text-[10px] text-stone-600 mt-3">PDF • 2.5 MB • Updated 2025</p></div>`)}
+
+// ===== Profile Modal =====
+function openProfileModal(){openModal(`<div class="text-center"><div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mx-auto mb-5"><span class="iconify text-3xl text-blue-400" data-icon="mdi:file-document-outline"></span></div><h3 class="text-xl font-semibold text-white mb-2">Download Company Profile</h3><p class="text-sm text-stone-400 font-light mb-6">Get the complete ADITATTVA corporate profile with capabilities, leadership, and engagement details.</p><button onclick="handleDownload()" class="btn-primary w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl text-sm flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:download"></span> Download PDF Profile</button><p class="text-[10px] text-stone-600 mt-3">PDF • 2.5 MB • Updated 2025</p></div>`)}
 function handleDownload(){closeModal();showToast('Company profile download initiated. Thank you!')}
+
+// ===== BU Modals =====
+const buData=[
+  {title:'Strategy & Consulting',icon:'mdi:lightbulb-on-outline',desc:'Our Strategy & Consulting practice helps governments and enterprises navigate complexity, design transformation roadmaps, and achieve measurable outcomes.',services:['Management Consulting','Policy & Regulatory Advisory','PPP Structuring & Advisory','Investment Advisory & Financial Modeling','ESG Consulting & Sustainability Strategy','Organizational Transformation','Public Sector Reform']},
+  {title:'Engineering & Infrastructure',icon:'mdi:bridge',desc:'Full-spectrum engineering capabilities from concept to commissioning — covering design, project management, and technical advisory.',services:['Design Engineering (Civil, Structural, MEP)','Project Management Consultancy (PMC)','Infrastructure Planning & Feasibility','Technical Advisory & Due Diligence','Construction Supervision & QA/QC','Asset Management & Lifecycle Engineering','Detailed & DPR Engineering']},
+  {title:'Digital & Technology',icon:'mdi:cpu-64-bit',desc:'Enterprise-grade digital transformation spanning AI, cloud, cybersecurity, and smart platforms — purpose-built for infrastructure and governance.',services:['AI & Data Analytics','Cloud Solutions & Migration','Cybersecurity & SOC','Smart Platforms & IoT','Enterprise Application Development','Data Engineering & BI','Digital Process Automation']},
+  {title:'Industrial & Advanced Systems',icon:'mdi:factory',desc:'Industry 4.0 solutions for manufacturing, energy, and process industries — combining automation, digital twins, and advanced analytics.',services:['Industrial Automation & SCADA','Smart Manufacturing Solutions','Energy Management Systems','Industrial Digital Twins','Predictive Maintenance','Plant Optimization & Analytics','Control Systems Engineering']},
+  {title:'Innovation & R&D',icon:'mdi:flask-outline',desc:'Dedicated innovation infrastructure for breakthrough solutions — from applied research labs to product development and technology incubation.',services:['Innovation Labs','Product Development','Applied Research Programs','Technology Incubation','Prototyping & MVP Development','Patent & IP Advisory','Academic Research Collaboration']},
+  {title:'Urban & Social Development',icon:'mdi:city-variant-outline',desc:'Comprehensive urban and social infrastructure solutions — from smart city master plans to sustainability frameworks.',services:['Smart City Planning & Implementation','Urban Mobility Solutions','Sustainability & Climate Resilience','Public Program Design & M&E','Social Infrastructure Planning','Water & Sanitation Systems','Habitat & Shelter Development']}
+];
+function openBUModal(i){const b=buData[i];openModal(`<div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><span class="iconify text-2xl text-blue-400" data-icon="${b.icon}"></span></div><h3 class="text-xl font-semibold text-white mb-3">${b.title}</h3><p class="text-sm text-stone-400 font-light leading-relaxed mb-5">${b.desc}</p><div class="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-3">Service Lines</div><ul class="space-y-2 mb-6">${b.services.map(s=>`<li class="flex items-start gap-2"><span class="iconify text-blue-400 mt-0.5 flex-shrink-0" data-icon="mdi:chevron-right"></span><span class="text-xs text-stone-400">${s}</span></li>`).join('')}</ul><a href="#contact" onclick="closeModal()" class="btn-primary block text-center bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl text-sm">Discuss This Capability</a>`)}
+
+// ===== Role Modal =====
+function openRoleModal(r){openModal(`<div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><span class="iconify text-2xl text-blue-400" data-icon="mdi:briefcase-outline"></span></div><h3 class="text-xl font-semibold text-white mb-2">${r}</h3><p class="text-sm text-stone-400 font-light mb-5">Join ADITATTVA and work on transformational projects at national and global scale.</p><div class="space-y-3 mb-6"><div class="flex items-center gap-2 text-xs text-stone-400"><span class="iconify text-blue-400" data-icon="mdi:map-marker-outline"></span> Ranchi, Jharkhand / Hybrid / Remote</div><div class="flex items-center gap-2 text-xs text-stone-400"><span class="iconify text-blue-400" data-icon="mdi:clock-outline"></span> Full-time, Permanent</div><div class="flex items-center gap-2 text-xs text-stone-400"><span class="iconify text-blue-400" data-icon="mdi:currency-inr"></span> Competitive + Benefits</div></div><a href="#contact" onclick="closeModal()" class="btn-primary block text-center bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl text-sm">Apply Now</a>`)}
+
+// ===== Contact Form =====
+function handleContactSubmit(e){e.preventDefault();const btn=e.target.querySelector('button[type="submit"]');const t=document.getElementById('submitText');const l=document.getElementById('submitLoader');const ic=document.getElementById('submitIcon');t.textContent='Sending...';l.classList.remove('hidden');ic.classList.add('hidden');btn.disabled=true;setTimeout(()=>{t.textContent='Submit Inquiry';l.classList.add('hidden');ic.classList.remove('hidden');btn.disabled=false;e.target.reset();showToast("Thank you! Your inquiry has been submitted. We'll respond within 24 hours.")},2000)}
+
+// ===== Insights Filter =====
+function filterInsights(type,btn){document.querySelectorAll('.insight-tab').forEach(t=>{t.classList.remove('bg-blue-600','text-white');t.classList.add('bg-neutral-800','text-stone-400')});btn.classList.remove('bg-neutral-800','text-stone-400');btn.classList.add('bg-blue-600','text-white');document.querySelectorAll('.insight-card').forEach(c=>{if(type==='all'||c.dataset.type===type){c.style.display='';setTimeout(()=>{c.style.opacity='1';c.style.transform='translateY(0)'},50)}else{c.style.opacity='0';c.style.transform='translateY(20px)';setTimeout(()=>{c.style.display='none'},300)}})}
+
+// ===== Smooth Scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'})}})});
+
+// ===== Keyboard =====
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();if(document.getElementById('mobileMenu').classList.contains('open'))toggleMobileMenu()}});
+</script>
+</body>
+</html>
